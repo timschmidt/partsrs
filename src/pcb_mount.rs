@@ -14,13 +14,13 @@ pub struct PCBMount {
 impl PCBMount {
     /// Generate the mount body
     pub fn body(&self) -> CSG<()> {
-        CSG::box_shape(self.width, self.height, self.thickness)
+        CSG::prism(self.width, self.height, self.thickness)
     }
 
     /// Generate the mounting holes
     pub fn holes(&self) -> CSG<()> {
         let hole = CSG::cylinder(self.hole_diameter / 2.0, self.thickness + 1.0);
-        let mut hole_array = CSG::empty();
+        let mut hole_array = CSG::new();
         let start_x = -((self.hole_count as f64 - 1.0) / 2.0) * self.hole_spacing;
 
         for i in 0..self.hole_count {

@@ -16,12 +16,12 @@ pub struct PhotoInterrupter {
 impl PhotoInterrupter {
     /// Generate the main body
     pub fn body(&self) -> CSG<()> {
-        CSG::box_shape(self.body_width, self.body_height, self.body_depth)
+        CSG::prism(self.body_width, self.body_height, self.body_depth)
     }
 
     /// Generate the slot in the interrupter
     pub fn slot(&self) -> CSG<()> {
-        CSG::box_shape(self.slot_width, self.slot_depth, self.slot_height)
+        CSG::prism(self.slot_width, self.slot_depth, self.slot_height)
             .translate(0.0, 0.0, self.body_height / 2.0)
     }
 

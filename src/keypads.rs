@@ -19,7 +19,7 @@ pub struct Keypad {
 impl Keypad {
     /// Generate the rectangular base of the keypad
     pub fn base(&self) -> CSG<()> {
-        CSG::box_shape(self.base_width, self.base_height, self.base_depth)
+        CSG::prism(self.base_width, self.base_height, self.base_depth)
     }
     
     /// Generate the keys of the keypad
@@ -32,7 +32,7 @@ impl Keypad {
             for col in 0..self.columns {
                 let x_offset = start_x + col as f64 * self.key_spacing;
                 let y_offset = start_y + row as f64 * self.key_spacing;
-                let key = CSG::box_shape(self.key_width, self.key_height, self.key_depth)
+                let key = CSG::prism(self.key_width, self.key_height, self.key_depth)
                     .translate(x_offset, y_offset, self.base_depth);
                 keys = keys.union(&key);
             }

@@ -14,13 +14,13 @@ pub struct PSUShroud {
 impl PSUShroud {
     /// Generate the shroud body
     pub fn body(&self) -> CSG<()> {
-        CSG::box_shape(self.width, self.height, self.depth)
+        CSG::prism(self.width, self.height, self.depth)
     }
 
     /// Generate vent holes
     pub fn vent_holes(&self) -> CSG<()> {
         let hole = CSG::cylinder(self.vent_hole_diameter / 2.0, self.depth + 1.0);
-        let mut holes = CSG::empty();
+        let mut holes = CSG::new();
         let start_x = -((self.vent_hole_count as f64 - 1.0) / 2.0) * self.vent_hole_spacing;
 
         for i in 0..self.vent_hole_count {

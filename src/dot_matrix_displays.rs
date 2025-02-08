@@ -22,7 +22,7 @@ impl DotMatrixDisplay {
     
     /// Generate the panel of the display
     pub fn panel(&self) -> CSG<()> {
-        CSG::box_shape(self.panel_width, self.panel_height, self.panel_depth)
+        CSG::prism(self.panel_width, self.panel_height, self.panel_depth)
     }
     
     /// Generate the full dot matrix display model

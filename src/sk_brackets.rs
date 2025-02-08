@@ -14,7 +14,7 @@ pub struct SKBracket {
 impl SKBracket {
     /// Generate the base of the SK bracket
     pub fn base(&self) -> CSG<()> {
-        CSG::box_shape(self.base_width, self.base_length, self.height)
+        CSG::prism(self.base_width, self.base_length, self.height)
     }
 
     /// Generate the mount holes

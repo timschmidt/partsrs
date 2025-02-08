@@ -16,7 +16,7 @@ pub struct SSR {
 impl SSR {
     /// Generate the main body of the SSR
     pub fn body(&self) -> CSG<()> {
-        CSG::box_shape(self.length, self.width, self.height)
+        CSG::prism(self.length, self.width, self.height)
     }
     
     /// Generate the mounting holes of the SSR

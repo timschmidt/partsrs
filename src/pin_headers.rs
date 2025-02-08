@@ -15,13 +15,13 @@ pub struct PinHeader {
 impl PinHeader {
     /// Generate the plastic base
     pub fn base(&self) -> CSG<()> {
-        CSG::box_shape(self.base_width, self.base_length, self.base_thickness)
+        CSG::prism(self.base_width, self.base_length, self.base_thickness)
     }
 
     /// Generate the pins
     pub fn pins(&self) -> CSG<()> {
         let pin = CSG::cylinder(self.pin_diameter / 2.0, self.pin_length);
-        let mut pin_array = CSG::empty();
+        let mut pin_array = CSG::new();
         let spacing = self.row_spacing;
 
         for i in 0..self.pin_count {

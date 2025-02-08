@@ -17,12 +17,12 @@ pub struct Microswitch {
 impl Microswitch {
     /// Generate the rectangular body of the microswitch
     pub fn body(&self) -> CSG<()> {
-        CSG::box_shape(self.body_width, self.body_height, self.body_depth)
+        CSG::prism(self.body_width, self.body_height, self.body_depth)
     }
     
     /// Generate the lever of the microswitch
     pub fn lever(&self) -> CSG<()> {
-        CSG::box_shape(self.lever_length, self.lever_width, self.lever_thickness)
+        CSG::prism(self.lever_length, self.lever_width, self.lever_thickness)
             .translate(0.0, self.body_height / 2.0, self.body_depth / 2.0)
     }
     

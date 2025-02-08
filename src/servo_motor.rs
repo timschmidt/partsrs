@@ -14,7 +14,7 @@ pub struct ServoMotor {
 impl ServoMotor {
     /// Generate the main servo body
     pub fn body(&self) -> CSG<()> {
-        CSG::box_shape(self.body_width, self.body_height, self.body_depth)
+        CSG::prism(self.body_width, self.body_height, self.body_depth)
     }
 
     /// Generate the rotating shaft

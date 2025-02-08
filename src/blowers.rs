@@ -20,7 +20,7 @@ impl Blower {
     
     /// Generate the outlet of the blower
     pub fn outlet(&self) -> CSG<()> {
-        CSG::box_shape(self.outlet_width, self.outlet_height, self.body_height)
+        CSG::prism(self.outlet_width, self.outlet_height, self.body_height)
             .translate(self.body_diameter / 2.0, 0.0, 0.0)
     }
     
@@ -29,7 +29,7 @@ impl Blower {
         let mut fan = CSG::new();
         for i in 0..self.fan_blades {
             let angle = (i as f64) * (360.0 / self.fan_blades as f64);
-            let blade = CSG::box_shape(self.fan_diameter / 2.0, self.body_height / 10.0, self.body_height)
+            let blade = CSG::prism(self.fan_diameter / 2.0, self.body_height / 10.0, self.body_height)
                 .rotate_z(angle);
             fan = fan.union(&blade);
         }

@@ -15,7 +15,7 @@ pub struct DIP {
 impl DIP {
     /// Generate the body of the DIP package
     pub fn body(&self) -> CSG<()> {
-        CSG::box_shape(self.body_length, self.body_width, self.body_height)
+        CSG::prism(self.body_length, self.body_width, self.body_height)
     }
     
     /// Generate the pins of the DIP package

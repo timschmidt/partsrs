@@ -13,12 +13,12 @@ pub struct MicroView {
 impl MicroView {
     /// Generate the main housing
     pub fn body(&self) -> CSG<()> {
-        CSG::box_shape(self.width, self.height, self.depth)
+        CSG::prism(self.width, self.height, self.depth)
     }
 
     /// Generate the screen cutout
     pub fn screen(&self) -> CSG<()> {
-        CSG::box_shape(self.screen_width, self.screen_height, self.depth + 1.0)
+        CSG::prism(self.screen_width, self.screen_height, self.depth + 1.0)
             .translate(0.0, 0.0, self.depth / 2.0)
     }
 

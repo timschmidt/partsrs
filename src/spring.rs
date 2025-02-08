@@ -12,7 +12,7 @@ pub struct Spring {
 impl Spring {
     /// Generate the spring coil
     pub fn coil(&self) -> CSG<()> {
-        let mut coil = CSG::empty();
+        let mut coil = CSG::new();
         let step = self.height / self.turns as f64;
 
         for i in 0..self.turns {

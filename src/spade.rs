@@ -14,7 +14,7 @@ pub struct SpadeTerminal {
 impl SpadeTerminal {
     /// Generate the blade of the spade terminal
     pub fn blade(&self) -> CSG<()> {
-        CSG::box_shape(self.blade_width, self.blade_thickness, self.blade_length)
+        CSG::prism(self.blade_width, self.blade_thickness, self.blade_length)
     }
     
     /// Generate the barrel of the spade terminal

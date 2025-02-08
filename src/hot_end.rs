@@ -16,7 +16,7 @@ pub struct HotEnd {
 impl HotEnd {
     /// Generate the heater block of the hot end
     pub fn heater_block(&self) -> CSG<()> {
-        CSG::box_shape(self.heater_block_width, self.heater_block_height, self.heater_block_depth)
+        CSG::prism(self.heater_block_width, self.heater_block_height, self.heater_block_depth)
     }
     
     /// Generate the nozzle of the hot end

@@ -13,7 +13,7 @@ pub struct IECConnector {
 impl IECConnector {
     /// Generate the main body of the IEC connector
     pub fn body(&self) -> CSG<()> {
-        CSG::box_shape(self.width, self.height, self.depth)
+        CSG::prism(self.width, self.height, self.depth)
     }
 
     /// Generate the mounting holes

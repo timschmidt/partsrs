@@ -16,12 +16,12 @@ pub struct BulldogClamp {
 impl BulldogClamp {
     /// Generate the rectangular body of the bulldog clamp
     pub fn body(&self) -> CSG<()> {
-        CSG::box_shape(self.body_width, self.body_height, self.body_depth)
+        CSG::prism(self.body_width, self.body_height, self.body_depth)
     }
     
     /// Generate the jaws of the bulldog clamp
     pub fn jaws(&self) -> CSG<()> {
-        CSG::box_shape(self.jaw_width, self.body_height, self.jaw_depth)
+        CSG::prism(self.jaw_width, self.body_height, self.jaw_depth)
             .translate(0.0, 0.0, self.body_depth / 2.0)
     }
     

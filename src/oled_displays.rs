@@ -18,12 +18,12 @@ pub struct OLEDDisplay {
 impl OLEDDisplay {
     /// Generate the screen of the OLED display
     pub fn screen(&self) -> CSG<()> {
-        CSG::box_shape(self.screen_width, self.screen_height, self.screen_depth)
+        CSG::prism(self.screen_width, self.screen_height, self.screen_depth)
     }
     
     /// Generate the bezel of the OLED display
     pub fn bezel(&self) -> CSG<()> {
-        CSG::box_shape(self.bezel_width, self.bezel_height, self.bezel_depth)
+        CSG::prism(self.bezel_width, self.bezel_height, self.bezel_depth)
     }
     
     /// Generate the mounting holes

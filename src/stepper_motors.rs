@@ -14,7 +14,7 @@ pub struct StepperMotor {
 impl StepperMotor {
     /// Generate the motor body
     pub fn body(&self) -> CSG<()> {
-        CSG::box_shape(self.side_length, self.side_length, self.body_length)
+        CSG::prism(self.side_length, self.side_length, self.body_length)
     }
 
     /// Generate the motor shaft

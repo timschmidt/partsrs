@@ -15,7 +15,7 @@ pub struct Rail {
 impl Rail {
     /// Generate the main rectangular body of the rail
     pub fn body(&self) -> CSG<()> {
-        CSG::box_shape(self.width, self.height, self.length)
+        CSG::prism(self.width, self.height, self.length)
     }
     
     /// Generate the mounting holes along the rail

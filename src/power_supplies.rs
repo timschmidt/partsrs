@@ -17,7 +17,7 @@ pub struct PowerSupply {
 impl PowerSupply {
     /// Generate the rectangular body of the power supply
     pub fn body(&self) -> CSG<()> {
-        CSG::box_shape(self.body_width, self.body_height, self.body_depth)
+        CSG::prism(self.body_width, self.body_height, self.body_depth)
     }
     
     /// Generate the vent holes of the power supply

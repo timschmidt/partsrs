@@ -15,13 +15,13 @@ pub struct CableStrip {
 impl CableStrip {
     /// Generate the main strip body
     pub fn body(&self) -> CSG<()> {
-        CSG::box_shape(self.width, self.height, self.depth)
+        CSG::prism(self.width, self.height, self.depth)
     }
 
     /// Generate the slots for the cables
     pub fn slots(&self) -> CSG<()> {
-        let slot = CSG::box_shape(self.slot_width, self.slot_depth, self.height);
-        let mut slots = CSG::empty();
+        let slot = CSG::prism(self.slot_width, self.slot_depth, self.height);
+        let mut slots = CSG::new();
         let start_x = -((self.slot_count as f64 - 1.0) / 2.0) * self.slot_spacing;
 
         for i in 0..self.slot_count {

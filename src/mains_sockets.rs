@@ -13,7 +13,7 @@ pub struct MainsSocket {
 impl MainsSocket {
     /// Generate the socket body
     pub fn body(&self) -> CSG<()> {
-        CSG::box_shape(self.width, self.height, self.depth)
+        CSG::prism(self.width, self.height, self.depth)
     }
 
     /// Generate the plug holes

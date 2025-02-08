@@ -17,12 +17,12 @@ pub struct PanelMeter {
 impl PanelMeter {
     /// Generate the rectangular body of the panel meter
     pub fn body(&self) -> CSG<()> {
-        CSG::box_shape(self.body_width, self.body_height, self.body_depth)
+        CSG::prism(self.body_width, self.body_height, self.body_depth)
     }
     
     /// Generate the display of the panel meter
     pub fn display(&self) -> CSG<()> {
-        CSG::box_shape(self.display_width, self.display_height, self.display_depth)
+        CSG::prism(self.display_width, self.display_height, self.display_depth)
             .translate(0.0, 0.0, self.body_depth - self.display_depth)
     }
     

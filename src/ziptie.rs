@@ -15,12 +15,12 @@ pub struct ZipTie {
 impl ZipTie {
     /// Generate the strap of the zip tie
     pub fn strap(&self) -> CSG<()> {
-        CSG::box_shape(self.length, self.width, self.thickness)
+        CSG::prism(self.length, self.width, self.thickness)
     }
     
     /// Generate the head of the zip tie
     pub fn head(&self) -> CSG<()> {
-        CSG::box_shape(self.head_width, self.head_height, self.head_depth)
+        CSG::prism(self.head_width, self.head_height, self.head_depth)
             .translate(self.length / 2.0 - self.head_depth / 2.0, 0.0, 0.0)
     }
     

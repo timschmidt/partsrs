@@ -13,12 +13,12 @@ pub struct TTrack {
 impl TTrack {
     /// Generate the base of the T-track
     pub fn base(&self) -> CSG<()> {
-        CSG::box_shape(self.base_width, self.length, self.base_height)
+        CSG::prism(self.base_width, self.length, self.base_height)
     }
 
     /// Generate the T-slot
     pub fn slot(&self) -> CSG<()> {
-        CSG::box_shape(self.slot_width, self.length, self.slot_depth)
+        CSG::prism(self.slot_width, self.length, self.slot_depth)
             .translate(0.0, 0.0, self.base_height / 2.0)
     }
 

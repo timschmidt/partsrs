@@ -13,12 +13,12 @@ pub struct RibbonClamp {
 impl RibbonClamp {
     /// Generate the clamp body
     pub fn body(&self) -> CSG<()> {
-        CSG::box_shape(self.width, self.height, self.depth)
+        CSG::prism(self.width, self.height, self.depth)
     }
 
     /// Generate the ribbon slot
     pub fn slot(&self) -> CSG<()> {
-        CSG::box_shape(self.slot_width, self.height, self.slot_height)
+        CSG::prism(self.slot_width, self.height, self.slot_height)
             .translate(0.0, 0.0, self.depth / 2.0)
     }
 

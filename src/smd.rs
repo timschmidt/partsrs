@@ -16,7 +16,7 @@ pub struct SMD {
 impl SMD {
     /// Generate the rectangular body of the SMD
     pub fn body(&self) -> CSG<()> {
-        CSG::box_shape(self.body_length, self.body_width, self.body_height)
+        CSG::prism(self.body_length, self.body_width, self.body_height)
     }
     
     /// Generate the pads of the SMD
@@ -28,7 +28,7 @@ impl SMD {
         ];
         
         for &(x, y) in &offsets {
-            let pad = CSG::box_shape(self.pad_length, self.pad_width, self.pad_height)
+            let pad = CSG::prism(self.pad_length, self.pad_width, self.pad_height)
                 .translate(x, y, -self.pad_height);
             pads = pads.union(&pad);
         }

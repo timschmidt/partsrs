@@ -15,7 +15,7 @@ pub struct Belt {
 impl Belt {
     /// Generate the base rectangular body of the belt
     pub fn body(&self) -> CSG<()> {
-        CSG::box_shape(self.length, self.width, self.thickness)
+        CSG::prism(self.length, self.width, self.thickness)
     }
     
     /// Generate the teeth along the belt
@@ -24,7 +24,7 @@ impl Belt {
         let num_teeth = (self.length / self.tooth_pitch).floor() as i32;
         
         for i in 0..num_teeth {
-            let tooth = CSG::box_shape(self.tooth_pitch, self.width, self.tooth_height)
+            let tooth = CSG::prism(self.tooth_pitch, self.width, self.tooth_height)
                 .translate(i as f64 * self.tooth_pitch - (self.length / 2.0), 0.0, self.thickness);
             teeth = teeth.union(&tooth);
         }

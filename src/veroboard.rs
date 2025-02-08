@@ -15,13 +15,13 @@ pub struct Veroboard {
 impl Veroboard {
     /// Generate the board body
     pub fn body(&self) -> CSG<()> {
-        CSG::box_shape(self.width, self.height, self.thickness)
+        CSG::prism(self.width, self.height, self.thickness)
     }
 
     /// Generate the hole pattern
     pub fn holes(&self) -> CSG<()> {
         let hole = CSG::cylinder(self.hole_diameter / 2.0, self.thickness);
-        let mut holes = CSG::empty();
+        let mut holes = CSG::new();
 
         let x_start = -((self.hole_count_x as f64 - 1.0) / 2.0) * self.hole_spacing;
         let y_start = -((self.hole_count_y as f64 - 1.0) / 2.0) * self.hole_spacing;

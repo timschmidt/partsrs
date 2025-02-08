@@ -10,7 +10,7 @@ pub struct CornerBlock {
 impl CornerBlock {
     /// Generate the main block
     pub fn body(&self) -> CSG<()> {
-        CSG::box_shape(self.size, self.size, self.size)
+        CSG::prism(self.size, self.size, self.size)
     }
 
     /// Generate the screw holes

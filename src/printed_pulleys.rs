@@ -23,8 +23,8 @@ impl PrintedPulley {
 
     /// Generate the teeth
     pub fn teeth(&self) -> CSG<()> {
-        let tooth = CSG::box_shape(self.tooth_depth, self.width, self.tooth_depth);
-        let mut teeth = CSG::empty();
+        let tooth = CSG::prism(self.tooth_depth, self.width, self.tooth_depth);
+        let mut teeth = CSG::new();
         let angle_step = 360.0 / self.tooth_count as f64;
 
         for i in 0..self.tooth_count {

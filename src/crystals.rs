@@ -16,7 +16,7 @@ pub struct Crystal {
 impl Crystal {
     /// Generate the rectangular body of the crystal
     pub fn body(&self) -> CSG<()> {
-        CSG::box_shape(self.body_width, self.body_height, self.body_depth)
+        CSG::prism(self.body_width, self.body_height, self.body_depth)
     }
     
     /// Generate the leads of the crystal

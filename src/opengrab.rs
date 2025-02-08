@@ -14,17 +14,17 @@ pub struct OpenGrabMagnet {
 impl OpenGrabMagnet {
     /// Generate the magnet base
     pub fn base(&self) -> CSG<()> {
-        CSG::box_shape(self.width, self.width, self.magnet_height)
+        CSG::prism(self.width, self.width, self.magnet_height)
     }
 
     /// Generate the poles
     pub fn poles(&self) -> CSG<()> {
-        let mut pole_array = CSG::empty();
+        let mut pole_array = CSG::new();
         let gap = (self.width - (self.poles as f64 * self.pole_width)) / ((self.poles - 1) as f64);
 
         for i in 0..self.poles {
             let x_offset = (i as f64) * (self.pole_width + gap) - self.width / 2.0;
-            pole_array = pole_array.union(&CSG::box_shape(self.pole_width, self.pole_length, 1.0)
+            pole_array = pole_array.union(&CSG::prism(self.pole_width, self.pole_length, 1.0)
                 .translate(x_offset, 0.0, self.magnet_height / 2.0));
         }
 

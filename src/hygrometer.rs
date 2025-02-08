@@ -12,7 +12,7 @@ pub struct Hygrometer {
 impl Hygrometer {
     /// Generate the main casing of the hygrometer
     pub fn body(&self) -> CSG<()> {
-        CSG::box_shape(self.width, self.height, self.depth)
+        CSG::prism(self.width, self.height, self.depth)
     }
 
     /// Generate the sensor hole

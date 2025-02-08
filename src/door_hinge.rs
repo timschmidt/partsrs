@@ -15,7 +15,7 @@ pub struct DoorHinge {
 impl DoorHinge {
     /// Generate the hinge leaves
     pub fn leaves(&self) -> CSG<()> {
-        let leaf = CSG::box_shape(self.leaf_width, self.leaf_height, self.thickness);
+        let leaf = CSG::prism(self.leaf_width, self.leaf_height, self.thickness);
         leaf.union(&leaf.translate(0.0, 0.0, self.thickness * 2.0))
     }
 
@@ -27,7 +27,7 @@ impl DoorHinge {
     /// Generate the mounting holes
     pub fn holes(&self) -> CSG<()> {
         let hole = CSG::cylinder(self.hole_diameter / 2.0, self.thickness + 1.0);
-        let mut hole_array = CSG::empty();
+        let mut hole_array = CSG::new();
         let start_x = -((self.hole_count as f64 - 1.0) / 2.0) * self.hole_spacing;
 
         for i in 0..self.hole_count {

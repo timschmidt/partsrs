@@ -17,7 +17,7 @@ pub struct PillowBlock {
 impl PillowBlock {
     /// Generate the base of the pillow block
     pub fn base(&self) -> CSG<()> {
-        CSG::box_shape(self.base_length, self.base_width, self.base_height)
+        CSG::prism(self.base_length, self.base_width, self.base_height)
     }
     
     /// Generate the bearing housing

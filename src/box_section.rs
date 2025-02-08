@@ -13,12 +13,12 @@ pub struct BoxSection {
 impl BoxSection {
     /// Generate the outer shell of the box section
     pub fn outer_shell(&self) -> CSG<()> {
-        CSG::box_shape(self.outer_width, self.outer_height, self.outer_length)
+        CSG::prism(self.outer_width, self.outer_height, self.outer_length)
     }
     
     /// Generate the inner hollow section
     pub fn inner_hollow(&self) -> CSG<()> {
-        CSG::box_shape(
+        CSG::prism(
             self.outer_width - 2.0 * self.wall_thickness,
             self.outer_height - 2.0 * self.wall_thickness,
             self.outer_length,

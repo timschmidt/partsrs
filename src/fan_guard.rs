@@ -18,7 +18,7 @@ impl FanGuard {
     /// Generate the vent holes
     pub fn vents(&self) -> CSG<()> {
         let vent = CSG::cylinder(self.vent_diameter / 2.0, self.thickness + 1.0);
-        let mut holes = CSG::empty();
+        let mut holes = CSG::new();
         let angle_step = 360.0 / self.vent_count as f64;
 
         for i in 0..self.vent_count {

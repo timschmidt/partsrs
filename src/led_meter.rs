@@ -14,13 +14,13 @@ pub struct LEDMeter {
 impl LEDMeter {
     /// Generate the main panel body
     pub fn body(&self) -> CSG<()> {
-        CSG::box_shape(self.width, self.height, self.depth)
+        CSG::prism(self.width, self.height, self.depth)
     }
 
     /// Generate the LED holes
     pub fn led_holes(&self) -> CSG<()> {
         let led_hole = CSG::cylinder(self.led_diameter / 2.0, self.depth + 1.0);
-        let mut holes = CSG::empty();
+        let mut holes = CSG::new();
         let start_x = -((self.led_count as f64 - 1.0) / 2.0) * self.led_spacing;
 
         for i in 0..self.led_count {

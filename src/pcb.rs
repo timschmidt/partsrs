@@ -13,7 +13,7 @@ pub struct PCB {
 impl PCB {
     /// Generate the PCB body
     pub fn body(&self) -> CSG<()> {
-        CSG::box_shape(self.width, self.height, self.thickness)
+        CSG::prism(self.width, self.height, self.thickness)
     }
 
     /// Generate the mounting holes

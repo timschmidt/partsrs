@@ -14,7 +14,7 @@ pub struct Component {
 impl Component {
     /// Generate the main body of the component
     pub fn body(&self) -> CSG<()> {
-        CSG::box_shape(self.width, self.height, self.depth)
+        CSG::prism(self.width, self.height, self.depth)
     }
 
     /// Generate the leads

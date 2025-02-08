@@ -12,7 +12,7 @@ pub struct StrapHandle {
 impl StrapHandle {
     /// Generate the strap body
     pub fn body(&self) -> CSG<()> {
-        CSG::box_shape(self.width, self.length, self.thickness)
+        CSG::prism(self.width, self.length, self.thickness)
     }
 
     /// Generate the mounting holes

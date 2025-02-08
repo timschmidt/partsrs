@@ -12,7 +12,7 @@ pub struct DragChainLink {
 impl DragChainLink {
     /// Generate the link body
     pub fn body(&self) -> CSG<()> {
-        CSG::box_shape(self.width, self.length, self.height)
+        CSG::prism(self.width, self.length, self.height)
     }
 
     /// Generate the pivot holes

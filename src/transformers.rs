@@ -17,7 +17,7 @@ pub struct Transformer {
 impl Transformer {
     /// Generate the rectangular core of the transformer
     pub fn core(&self) -> CSG<()> {
-        CSG::box_shape(self.core_width, self.core_height, self.core_depth)
+        CSG::prism(self.core_width, self.core_height, self.core_depth)
     }
     
     /// Generate the windings of the transformer

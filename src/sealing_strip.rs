@@ -13,12 +13,12 @@ pub struct SealingStrip {
 impl SealingStrip {
     /// Generate the strip body
     pub fn body(&self) -> CSG<()> {
-        CSG::box_shape(self.width, self.length, self.height)
+        CSG::prism(self.width, self.length, self.height)
     }
 
     /// Generate the groove in the strip
     pub fn groove(&self) -> CSG<()> {
-        CSG::box_shape(self.groove_width, self.length, self.groove_depth)
+        CSG::prism(self.groove_width, self.length, self.groove_depth)
             .translate(0.0, 0.0, -self.groove_depth / 2.0)
     }
 

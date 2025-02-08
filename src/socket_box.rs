@@ -15,12 +15,12 @@ pub struct SocketBox {
 impl SocketBox {
     /// Generate the outer box body
     pub fn outer_body(&self) -> CSG<()> {
-        CSG::box_shape(self.width, self.height, self.depth)
+        CSG::prism(self.width, self.height, self.depth)
     }
 
     /// Generate the hollow interior
     pub fn inner_body(&self) -> CSG<()> {
-        CSG::box_shape(
+        CSG::prism(
             self.width - 2.0 * self.wall_thickness,
             self.height - 2.0 * self.wall_thickness,
             self.depth - 2.0 * self.wall_thickness,
@@ -30,7 +30,7 @@ impl SocketBox {
     /// Generate the socket holes
     pub fn holes(&self) -> CSG<()> {
         let hole = CSG::cylinder(self.hole_diameter / 2.0, self.depth + 1.0);
-        let mut hole_array = CSG::empty();
+        let mut hole_array = CSG::new();
         let start_x = -((self.hole_count as f64 - 1.0) / 2.0) * self.hole_spacing;
 
         for i in 0..self.hole_count {

@@ -12,12 +12,12 @@ pub struct BoxModel {
 impl BoxModel {
     /// Generate the outer box shape
     pub fn outer_body(&self) -> CSG<()> {
-        CSG::box_shape(self.width, self.height, self.depth)
+        CSG::prism(self.width, self.height, self.depth)
     }
 
     /// Generate the hollowed-out interior
     pub fn inner_body(&self) -> CSG<()> {
-        CSG::box_shape(
+        CSG::prism(
             self.width - 2.0 * self.wall_thickness,
             self.height - 2.0 * self.wall_thickness,
             self.depth - 2.0 * self.wall_thickness,

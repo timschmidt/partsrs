@@ -55,7 +55,7 @@ impl Circlip {
     /// Generate the circlip lugs
     pub fn lugs(&self) -> CSG<()> {
         let hole = CSG::cylinder(self.plier_hole_diameter / 2.0, self.thickness);
-        let lug = CSG::box_shape(self.lug_size, self.taper_width, self.thickness);
+        let lug = CSG::prism(self.lug_size, self.taper_width, self.thickness);
         lug.subtract(&hole)
     }
 

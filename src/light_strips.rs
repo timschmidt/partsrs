@@ -15,7 +15,7 @@ pub struct LightStrip {
 impl LightStrip {
     /// Generate the base strip of the light strip
     pub fn base_strip(&self) -> CSG<()> {
-        CSG::box_shape(self.strip_length, self.strip_width, self.strip_thickness)
+        CSG::prism(self.strip_length, self.strip_width, self.strip_thickness)
     }
     
     /// Generate the LEDs on the strip

@@ -18,7 +18,7 @@ pub struct ToggleSwitch {
 impl ToggleSwitch {
     /// Generate the rectangular body of the toggle switch
     pub fn body(&self) -> CSG<()> {
-        CSG::box_shape(self.body_width, self.body_height, self.body_depth)
+        CSG::prism(self.body_width, self.body_height, self.body_depth)
     }
     
     /// Generate the lever of the toggle switch

@@ -30,7 +30,7 @@ impl Diode {
     
     /// Generate the cathode band marking
     pub fn cathode_band(&self) -> CSG<()> {
-        CSG::box_shape(self.body_diameter, self.cathode_band_width, self.body_diameter)
+        CSG::prism(self.body_diameter, self.cathode_band_width, self.body_diameter)
             .translate(0.0, self.body_length - self.cathode_band_width / 2.0, 0.0)
     }
     

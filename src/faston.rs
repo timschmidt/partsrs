@@ -13,7 +13,7 @@ pub struct FastonTerminal {
 impl FastonTerminal {
     /// Generate the flat blade of the terminal
     pub fn blade(&self) -> CSG<()> {
-        CSG::box_shape(self.width, self.thickness, self.length)
+        CSG::prism(self.width, self.thickness, self.length)
     }
 
     /// Generate the crimp barrel

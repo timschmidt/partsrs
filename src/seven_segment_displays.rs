@@ -18,7 +18,7 @@ pub struct SevenSegmentDisplay {
 impl SevenSegmentDisplay {
     /// Generate a single digit of the display
     pub fn digit(&self) -> CSG<()> {
-        CSG::box_shape(self.digit_width, self.digit_height, self.digit_depth)
+        CSG::prism(self.digit_width, self.digit_height, self.digit_depth)
     }
     
     /// Generate the segments within a digit
@@ -32,7 +32,7 @@ impl SevenSegmentDisplay {
         ];
         
         for &(x, y) in &positions {
-            let segment = CSG::box_shape(self.segment_width, self.segment_height, self.segment_depth)
+            let segment = CSG::prism(self.segment_width, self.segment_height, self.segment_depth)
                 .translate(x, y, self.digit_depth / 2.0);
             segments = segments.union(&segment);
         }

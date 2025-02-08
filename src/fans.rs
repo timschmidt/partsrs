@@ -18,7 +18,7 @@ pub struct Fan {
 impl Fan {
     /// Generate the frame of the fan
     pub fn frame(&self) -> CSG<()> {
-        CSG::box_shape(self.frame_width, self.frame_height, self.frame_depth)
+        CSG::prism(self.frame_width, self.frame_height, self.frame_depth)
     }
     
     /// Generate the blades of the fan

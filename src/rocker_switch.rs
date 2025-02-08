@@ -13,12 +13,12 @@ pub struct RockerSwitch {
 impl RockerSwitch {
     /// Generate the outer casing of the switch
     pub fn casing(&self) -> CSG<()> {
-        CSG::box_shape(self.width, self.height, self.depth)
+        CSG::prism(self.width, self.height, self.depth)
     }
 
     /// Generate the rocker part
     pub fn rocker(&self) -> CSG<()> {
-        CSG::box_shape(self.rocker_width, self.rocker_height, self.depth / 2.0)
+        CSG::prism(self.rocker_width, self.rocker_height, self.depth / 2.0)
             .translate(0.0, 0.0, self.depth / 4.0)
     }
 

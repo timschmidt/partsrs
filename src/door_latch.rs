@@ -15,19 +15,19 @@ pub struct DoorLatch {
 impl DoorLatch {
     /// Generate the latch body
     pub fn body(&self) -> CSG<()> {
-        CSG::box_shape(self.width, self.height, self.thickness)
+        CSG::prism(self.width, self.height, self.thickness)
     }
 
     /// Generate the latch cutout
     pub fn latch_cutout(&self) -> CSG<()> {
-        CSG::box_shape(self.width / 3.0, self.latch_depth, self.thickness)
+        CSG::prism(self.width / 3.0, self.latch_depth, self.thickness)
             .translate(0.0, self.height / 4.0, 0.0)
     }
 
     /// Generate the mounting holes
     pub fn holes(&self) -> CSG<()> {
         let hole = CSG::cylinder(self.hole_diameter / 2.0, self.thickness + 1.0);
-        let mut hole_array = CSG::empty();
+        let mut hole_array = CSG::new();
         let start_x = -((self.hole_count as f64 - 1.0) / 2.0) * self.hole_spacing;
 
         for i in 0..self.hole_count {
