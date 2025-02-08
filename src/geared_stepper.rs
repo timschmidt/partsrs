@@ -14,18 +14,18 @@ pub struct GearedStepperMotor {
 impl GearedStepperMotor {
     /// Generate the motor body
     pub fn body(&self) -> CSG<()> {
-        CSG::cylinder(self.body_diameter / 2.0, self.body_length)
+        CSG::cylinder_z(self.body_diameter / 2.0, self.body_length)
     }
 
     /// Generate the gear
     pub fn gear(&self) -> CSG<()> {
-        CSG::cylinder(self.gear_diameter / 2.0, self.gear_length)
+        CSG::cylinder_z(self.gear_diameter / 2.0, self.gear_length)
             .translate(Vector3::new(0.0, 0.0, self.body_length))
     }
 
     /// Generate the motor shaft
     pub fn shaft(&self) -> CSG<()> {
-        CSG::cylinder(self.shaft_diameter / 2.0, self.shaft_length)
+        CSG::cylinder_z(self.shaft_diameter / 2.0, self.shaft_length)
             .translate(Vector3::new(0.0, 0.0, self.body_length + self.gear_length))
     }
 

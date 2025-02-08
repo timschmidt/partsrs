@@ -10,7 +10,7 @@ pub struct Wire {
 impl Wire {
     /// Generate the wire body
     pub fn body(&self) -> CSG<()> {
-        CSG::cylinder(self.diameter / 2.0, self.length)
+        CSG::cylinder_z(self.diameter / 2.0, self.length)
     }
 
     /// Assemble the complete wire

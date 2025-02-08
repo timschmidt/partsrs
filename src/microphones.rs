@@ -16,12 +16,12 @@ pub struct Microphone {
 impl Microphone {
     /// Generate the cylindrical body of the microphone
     pub fn body(&self) -> CSG<()> {
-        CSG::cylinder(self.body_diameter / 2.0, self.body_height)
+        CSG::cylinder_z(self.body_diameter / 2.0, self.body_height)
     }
     
     /// Generate the grille of the microphone
     pub fn grille(&self) -> CSG<()> {
-        CSG::cylinder(self.grille_diameter / 2.0, self.grille_height)
+        CSG::cylinder_z(self.grille_diameter / 2.0, self.grille_height)
             .translate(Vector3::new(0.0, 0.0, self.body_height))
     }
     
@@ -36,7 +36,7 @@ impl Microphone {
         ];
         
         for &(x, y) in &offsets {
-            let hole = CSG::cylinder(self.mounting_hole_diameter / 2.0, self.body_height)
+            let hole = CSG::cylinder_z(self.mounting_hole_diameter / 2.0, self.body_height)
                 .translate(Vector3::new(x, y, 0.0));
             holes = holes.union(&hole);
         }

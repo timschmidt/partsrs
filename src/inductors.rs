@@ -15,7 +15,7 @@ pub struct Inductor {
 impl Inductor {
     /// Generate the cylindrical core of the inductor
     pub fn core(&self) -> CSG<()> {
-        CSG::cylinder(self.core_diameter / 2.0, self.core_height)
+        CSG::cylinder_z(self.core_diameter / 2.0, self.core_height)
     }
     
     /// Generate the windings of the inductor

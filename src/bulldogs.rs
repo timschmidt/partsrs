@@ -27,7 +27,7 @@ impl BulldogClamp {
     
     /// Generate the spring mechanism
     pub fn spring(&self) -> CSG<()> {
-        CSG::cylinder(self.spring_diameter / 2.0, self.spring_length)
+        CSG::cylinder_z(self.spring_diameter / 2.0, self.spring_length)
             .translate(Vector3::new(0.0, 0.0, self.body_depth / 2.0))
     }
     

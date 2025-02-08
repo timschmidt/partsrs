@@ -15,12 +15,12 @@ pub struct Screw {
 impl Screw {
     /// Generate a cylindrical screw body
     pub fn body(&self) -> CSG<()> {
-        CSG::cylinder(self.diameter / 2.0, self.length)
+        CSG::cylinder_z(self.diameter / 2.0, self.length)
     }
     
     /// Generate the screw head
     pub fn head(&self) -> CSG<()> {
-        CSG::cylinder(self.head_diameter / 2.0, self.head_height)
+        CSG::cylinder_z(self.head_diameter / 2.0, self.head_height)
     }
     
     /// Generate the full screw model

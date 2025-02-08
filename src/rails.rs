@@ -24,7 +24,7 @@ impl Rail {
         let num_holes = (self.length / self.hole_spacing).floor() as i32;
         
         for i in 0..num_holes {
-            let hole = CSG::cylinder(self.hole_diameter / 2.0, self.height)
+            let hole = CSG::cylinder_z(self.hole_diameter / 2.0, self.height)
                 .translate(Vector3::new(0.0, 0.0, i as f64 * self.hole_spacing - (self.length / 2.0)));
             holes = holes.union(&hole);
         }

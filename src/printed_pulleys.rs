@@ -13,12 +13,12 @@ pub struct PrintedPulley {
 impl PrintedPulley {
     /// Generate the pulley body
     pub fn body(&self) -> CSG<()> {
-        CSG::cylinder(self.outer_diameter / 2.0, self.width)
+        CSG::cylinder_z(self.outer_diameter / 2.0, self.width)
     }
 
     /// Generate the bore hole
     pub fn bore(&self) -> CSG<()> {
-        CSG::cylinder(self.bore_diameter / 2.0, self.width + 1.0)
+        CSG::cylinder_z(self.bore_diameter / 2.0, self.width + 1.0)
     }
 
     /// Generate the teeth

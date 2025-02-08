@@ -17,7 +17,7 @@ pub struct DotMatrixDisplay {
 impl DotMatrixDisplay {
     /// Generate a single pixel of the display
     pub fn pixel(&self) -> CSG<()> {
-        CSG::cylinder(self.pixel_diameter / 2.0, self.panel_depth)
+        CSG::cylinder_z(self.pixel_diameter / 2.0, self.panel_depth)
     }
     
     /// Generate the panel of the display

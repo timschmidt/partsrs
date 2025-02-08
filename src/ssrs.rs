@@ -28,7 +28,7 @@ impl SSR {
         ];
         
         for &(x, y) in &offsets {
-            let hole = CSG::cylinder(self.hole_diameter / 2.0, self.height)
+            let hole = CSG::cylinder_z(self.hole_diameter / 2.0, self.height)
                 .translate(Vector3::new(x, y, 0.0));
             holes = holes.union(&hole);
         }

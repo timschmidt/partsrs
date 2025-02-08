@@ -17,12 +17,12 @@ pub struct Potentiometer {
 impl Potentiometer {
     /// Generate the cylindrical body of the potentiometer
     pub fn body(&self) -> CSG<()> {
-        CSG::cylinder(self.body_diameter / 2.0, self.body_height)
+        CSG::cylinder_z(self.body_diameter / 2.0, self.body_height)
     }
     
     /// Generate the shaft of the potentiometer
     pub fn shaft(&self) -> CSG<()> {
-        CSG::cylinder(self.shaft_diameter / 2.0, self.shaft_length)
+        CSG::cylinder_z(self.shaft_diameter / 2.0, self.shaft_length)
             .translate(Vector3::new(0.0, 0.0, self.body_height))
     }
     
@@ -36,7 +36,7 @@ impl Potentiometer {
         ];
         
         for &(x, y) in &offsets {
-            let pin = CSG::cylinder(self.pin_diameter / 2.0, self.pin_length)
+            let pin = CSG::cylinder_z(self.pin_diameter / 2.0, self.pin_length)
                 .translate(Vector3::new(x, y, -self.pin_length));
             pins = pins.union(&pin);
         }

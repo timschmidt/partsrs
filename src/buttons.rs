@@ -17,12 +17,12 @@ pub struct Button {
 impl Button {
     /// Generate the cylindrical body of the button
     pub fn body(&self) -> CSG<()> {
-        CSG::cylinder(self.body_diameter / 2.0, self.body_height)
+        CSG::cylinder_z(self.body_diameter / 2.0, self.body_height)
     }
     
     /// Generate the button cap
     pub fn cap(&self) -> CSG<()> {
-        CSG::cylinder(self.button_diameter / 2.0, self.button_height)
+        CSG::cylinder_z(self.button_diameter / 2.0, self.button_height)
             .translate(Vector3::new(0.0, 0.0, self.body_height))
     }
     
@@ -35,7 +35,7 @@ impl Button {
         ];
         
         for &(x, y) in &offsets {
-            let pin = CSG::cylinder(self.pin_diameter / 2.0, self.pin_length)
+            let pin = CSG::cylinder_z(self.pin_diameter / 2.0, self.pin_length)
                 .translate(Vector3::new(x, y, -self.pin_length));
             pins = pins.union(&pin);
         }

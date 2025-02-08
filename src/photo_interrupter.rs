@@ -27,7 +27,7 @@ impl PhotoInterrupter {
 
     /// Generate the connector pins
     pub fn pins(&self) -> CSG<()> {
-        let pin = CSG::cylinder(self.pin_diameter / 2.0, self.pin_length);
+        let pin = CSG::cylinder_z(self.pin_diameter / 2.0, self.pin_length);
         pin.translate(Vector3::new(-self.body_width / 4.0, 0.0, -self.pin_length))
             .union(&pin.translate(Vector3::new(self.body_width / 4.0, 0.0, -self.pin_length)))
     }

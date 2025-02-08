@@ -19,7 +19,7 @@ impl StepperMotor {
 
     /// Generate the motor shaft
     pub fn shaft(&self) -> CSG<()> {
-        CSG::cylinder(self.shaft_diameter / 2.0, self.shaft_length)
+        CSG::cylinder_z(self.shaft_diameter / 2.0, self.shaft_length)
             .translate(Vector3::new(0.0, 0.0, self.body_length))
     }
 

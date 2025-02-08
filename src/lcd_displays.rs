@@ -37,7 +37,7 @@ impl LCDDisplay {
         ];
         
         for &(x, y) in &offsets {
-            let hole = CSG::cylinder(self.mounting_hole_diameter / 2.0, self.bezel_depth)
+            let hole = CSG::cylinder_z(self.mounting_hole_diameter / 2.0, self.bezel_depth)
                 .translate(Vector3::new(x, y, 0.0));
             holes = holes.union(&hole);
         }

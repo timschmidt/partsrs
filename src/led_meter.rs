@@ -19,7 +19,7 @@ impl LEDMeter {
 
     /// Generate the LED holes
     pub fn led_holes(&self) -> CSG<()> {
-        let led_hole = CSG::cylinder(self.led_diameter / 2.0, self.depth + 1.0);
+        let led_hole = CSG::cylinder_z(self.led_diameter / 2.0, self.depth + 1.0);
         let mut holes = CSG::new();
         let start_x = -((self.led_count as f64 - 1.0) / 2.0) * self.led_spacing;
 

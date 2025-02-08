@@ -12,12 +12,12 @@ pub struct Handle {
 impl Handle {
     /// Generate the main handle body
     pub fn body(&self) -> CSG<()> {
-        CSG::cylinder(self.diameter / 2.0, self.length)
+        CSG::cylinder_z(self.diameter / 2.0, self.length)
     }
 
     /// Generate the screw holes
     pub fn screw_holes(&self) -> CSG<()> {
-        let hole = CSG::cylinder(self.screw_diameter / 2.0, self.height);
+        let hole = CSG::cylinder_z(self.screw_diameter / 2.0, self.height);
         hole.translate(Vector3::new(self.length / 2.0, 0.0, 0.0))
             .union(&hole.translate(Vector3::new(-self.length / 2.0, 0.0, 0.0)))
     }

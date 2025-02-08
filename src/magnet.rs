@@ -11,12 +11,12 @@ pub struct Magnet {
 impl Magnet {
     /// Generate the magnet body
     pub fn body(&self) -> CSG<()> {
-        CSG::cylinder(self.diameter / 2.0, self.thickness)
+        CSG::cylinder_z(self.diameter / 2.0, self.thickness)
     }
 
     /// Generate the center hole
     pub fn hole(&self) -> CSG<()> {
-        CSG::cylinder(self.hole_diameter / 2.0, self.thickness + 1.0)
+        CSG::cylinder_z(self.hole_diameter / 2.0, self.thickness + 1.0)
     }
 
     /// Assemble the complete magnet

@@ -27,7 +27,7 @@ impl PowerSupply {
         
         for i in 0..num_holes {
             let x_offset = (i as f64 * self.vent_hole_spacing) - (self.body_width / 2.0);
-            let hole = CSG::cylinder(self.vent_hole_diameter / 2.0, self.body_height)
+            let hole = CSG::cylinder_z(self.vent_hole_diameter / 2.0, self.body_height)
                 .translate(Vector3::new(x_offset, 0.0, self.body_depth / 2.0));
             holes = holes.union(&hole);
         }
@@ -46,7 +46,7 @@ impl PowerSupply {
         ];
         
         for &(x, y) in &offsets {
-            let hole = CSG::cylinder(self.mounting_hole_diameter / 2.0, self.body_depth)
+            let hole = CSG::cylinder_z(self.mounting_hole_diameter / 2.0, self.body_depth)
                 .translate(Vector3::new(x, y, 0.0));
             holes = holes.union(&hole);
         }

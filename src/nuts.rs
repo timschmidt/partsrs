@@ -18,7 +18,7 @@ impl Nut {
     
     /// Generate the hole in the nut
     pub fn hole(&self) -> CSG<()> {
-        CSG::cylinder(self.hole_diameter / 2.0, self.thickness)
+        CSG::cylinder_z(self.hole_diameter / 2.0, self.thickness)
     }
     
     /// Generate the full nut model

@@ -13,12 +13,12 @@ pub struct Washer {
 impl Washer {
     /// Generate the outer ring of the washer
     pub fn outer_ring(&self) -> CSG<()> {
-        CSG::cylinder(self.outer_diameter / 2.0, self.thickness)
+        CSG::cylinder_z(self.outer_diameter / 2.0, self.thickness)
     }
     
     /// Generate the hole in the washer
     pub fn hole(&self) -> CSG<()> {
-        CSG::cylinder(self.inner_diameter / 2.0, self.thickness)
+        CSG::cylinder_z(self.inner_diameter / 2.0, self.thickness)
     }
     
     /// Generate the full washer model

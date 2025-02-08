@@ -22,13 +22,13 @@ impl PillowBlock {
     
     /// Generate the bearing housing
     pub fn housing(&self) -> CSG<()> {
-        CSG::cylinder(self.housing_diameter / 2.0, self.housing_height)
+        CSG::cylinder_z(self.housing_diameter / 2.0, self.housing_height)
             .translate(Vector3::new(0.0, 0.0, self.base_height))
     }
     
     /// Generate the inner bore of the bearing
     pub fn bore(&self) -> CSG<()> {
-        CSG::cylinder(self.bore_diameter / 2.0, self.housing_height + self.base_height)
+        CSG::cylinder_z(self.bore_diameter / 2.0, self.housing_height + self.base_height)
     }
     
     /// Generate the mounting holes
@@ -40,7 +40,7 @@ impl PillowBlock {
         ];
         
         for &(x, y) in &offsets {
-            let hole = CSG::cylinder(self.mounting_hole_diameter / 2.0, self.base_height)
+            let hole = CSG::cylinder_z(self.mounting_hole_diameter / 2.0, self.base_height)
                 .translate(Vector3::new(x, y, 0.0));
             holes = holes.union(&hole);
         }

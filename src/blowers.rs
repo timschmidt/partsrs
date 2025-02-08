@@ -15,7 +15,7 @@ pub struct Blower {
 impl Blower {
     /// Generate the cylindrical body of the blower
     pub fn body(&self) -> CSG<()> {
-        CSG::cylinder(self.body_diameter / 2.0, self.body_height)
+        CSG::cylinder_z(self.body_diameter / 2.0, self.body_height)
     }
     
     /// Generate the outlet of the blower

@@ -14,17 +14,17 @@ pub struct Spool {
 impl Spool {
     /// Generate the outer shell of the spool
     pub fn outer_shell(&self) -> CSG<()> {
-        CSG::cylinder(self.outer_diameter / 2.0, self.width)
+        CSG::cylinder_z(self.outer_diameter / 2.0, self.width)
     }
     
     /// Generate the inner bore of the spool
     pub fn inner_bore(&self) -> CSG<()> {
-        CSG::cylinder(self.inner_diameter / 2.0, self.width)
+        CSG::cylinder_z(self.inner_diameter / 2.0, self.width)
     }
     
     /// Generate the hub of the spool
     pub fn hub(&self) -> CSG<()> {
-        CSG::cylinder(self.hub_diameter / 2.0, self.hub_width)
+        CSG::cylinder_z(self.hub_diameter / 2.0, self.hub_width)
             .translate(Vector3::new(0.0, 0.0, (self.width - self.hub_width) / 2.0))
     }
     

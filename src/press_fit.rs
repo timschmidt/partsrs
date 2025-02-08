@@ -19,7 +19,7 @@ impl PSUShroud {
 
     /// Generate vent holes
     pub fn vent_holes(&self) -> CSG<()> {
-        let hole = CSG::cylinder(self.vent_hole_diameter / 2.0, self.depth + 1.0);
+        let hole = CSG::cylinder_z(self.vent_hole_diameter / 2.0, self.depth + 1.0);
         let mut holes = CSG::new();
         let start_x = -((self.vent_hole_count as f64 - 1.0) / 2.0) * self.vent_hole_spacing;
 

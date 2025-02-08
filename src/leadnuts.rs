@@ -15,17 +15,17 @@ pub struct Leadnut {
 impl Leadnut {
     /// Generate the cylindrical body of the leadnut
     pub fn body(&self) -> CSG<()> {
-        CSG::cylinder(self.outer_diameter / 2.0, self.length)
+        CSG::cylinder_z(self.outer_diameter / 2.0, self.length)
     }
     
     /// Generate the inner bore of the leadnut
     pub fn bore(&self) -> CSG<()> {
-        CSG::cylinder(self.inner_diameter / 2.0, self.length)
+        CSG::cylinder_z(self.inner_diameter / 2.0, self.length)
     }
     
     /// Generate the flange of the leadnut
     pub fn flange(&self) -> CSG<()> {
-        CSG::cylinder(self.flange_diameter / 2.0, self.flange_thickness)
+        CSG::cylinder_z(self.flange_diameter / 2.0, self.flange_thickness)
             .translate(Vector3::new(0.0, 0.0, self.length))
     }
     
@@ -38,7 +38,7 @@ impl Leadnut {
         ];
         
         for &(x, y) in &offsets {
-            let hole = CSG::cylinder(self.mounting_hole_diameter / 2.0, self.flange_thickness)
+            let hole = CSG::cylinder_z(self.mounting_hole_diameter / 2.0, self.flange_thickness)
                 .translate(Vector3::new(x, y, self.length));
             holes = holes.union(&hole);
         }

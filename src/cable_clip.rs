@@ -18,13 +18,13 @@ impl CableClip {
 
     /// Generate the cable slot
     pub fn cable_slot(&self) -> CSG<()> {
-        CSG::cylinder(self.cable_diameter / 2.0, self.depth)
+        CSG::cylinder_z(self.cable_diameter / 2.0, self.depth)
             .translate(Vector3::new(0.0, self.height / 4.0, 0.0))
     }
 
     /// Generate the mounting hole
     pub fn hole(&self) -> CSG<()> {
-        CSG::cylinder(self.hole_diameter / 2.0, self.depth + 1.0)
+        CSG::cylinder_z(self.hole_diameter / 2.0, self.depth + 1.0)
             .translate(Vector3::new(0.0, -self.height / 4.0, 0.0))
     }
 

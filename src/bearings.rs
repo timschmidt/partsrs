@@ -15,12 +15,12 @@ pub struct Bearing {
 impl Bearing {
     /// Generate the outer cylindrical body of the bearing
     pub fn outer_body(&self) -> CSG<()> {
-        CSG::cylinder(self.outer_diameter / 2.0, self.length)
+        CSG::cylinder_z(self.outer_diameter / 2.0, self.length)
     }
     
     /// Generate the inner hole of the bearing
     pub fn hole(&self) -> CSG<()> {
-        CSG::cylinder(self.inner_diameter / 2.0, self.length)
+        CSG::cylinder_z(self.inner_diameter / 2.0, self.length)
     }
     
     /// Generate the grooves if specified
@@ -29,7 +29,7 @@ impl Bearing {
             let mut grooves = CSG::new();
             let num_grooves = (self.length / spacing).floor() as i32;
             for i in 0..num_grooves {
-                let groove = CSG::cylinder(diameter / 2.0, spacing / 4.0)
+                let groove = CSG::cylinder_z(diameter / 2.0, spacing / 4.0)
                     .translate(Vector3::new(0.0, 0.0, i as f64 * spacing));
                 grooves = grooves.union(&groove);
             }

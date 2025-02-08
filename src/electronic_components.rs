@@ -19,7 +19,7 @@ impl Component {
 
     /// Generate the leads
     pub fn leads(&self) -> CSG<()> {
-        let lead = CSG::cylinder(self.lead_diameter / 2.0, self.lead_length);
+        let lead = CSG::cylinder_z(self.lead_diameter / 2.0, self.lead_length);
         let offset = self.lead_spacing / 2.0;
 
         lead.translate(Vector3::new(offset, 0.0, -self.lead_length))

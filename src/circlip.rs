@@ -47,14 +47,14 @@ impl Circlip {
         };
         let inner_radius = self.nominal_od / 2.0;
         let outer_radius = od / 2.0;
-        let csg_outer = CSG::cylinder(outer_radius, self.thickness);
-        let csg_inner = CSG::cylinder(inner_radius, self.thickness);
+        let csg_outer = CSG::cylinder_z(outer_radius, self.thickness);
+        let csg_inner = CSG::cylinder_z(inner_radius, self.thickness);
         csg_outer.subtract(&csg_inner)
     }
 
     /// Generate the circlip lugs
     pub fn lugs(&self) -> CSG<()> {
-        let hole = CSG::cylinder(self.plier_hole_diameter / 2.0, self.thickness);
+        let hole = CSG::cylinder_z(self.plier_hole_diameter / 2.0, self.thickness);
         let lug = CSG::prism(self.lug_size, self.taper_width, self.thickness);
         lug.subtract(&hole)
     }

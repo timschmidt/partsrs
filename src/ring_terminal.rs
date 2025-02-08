@@ -14,8 +14,8 @@ pub struct RingTerminal {
 impl RingTerminal {
     /// Generate the ring of the terminal
     pub fn ring(&self) -> CSG<()> {
-        let outer = CSG::cylinder(self.outer_diameter / 2.0, self.terminal_thickness);
-        let inner = CSG::cylinder(self.inner_diameter / 2.0, self.terminal_thickness);
+        let outer = CSG::cylinder_z(self.outer_diameter / 2.0, self.terminal_thickness);
+        let inner = CSG::cylinder_z(self.inner_diameter / 2.0, self.terminal_thickness);
         
         outer.subtract(&inner)
     }

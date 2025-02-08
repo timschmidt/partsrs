@@ -18,7 +18,7 @@ impl PCB {
 
     /// Generate the mounting holes
     pub fn holes(&self) -> CSG<()> {
-        let hole = CSG::cylinder(self.hole_diameter / 2.0, self.thickness);
+        let hole = CSG::cylinder_z(self.hole_diameter / 2.0, self.thickness);
         let offset = self.hole_spacing / 2.0;
 
         hole.translate(Vector3::new(offset, offset, 0.0))

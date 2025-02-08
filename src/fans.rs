@@ -28,7 +28,7 @@ impl Fan {
         
         for i in 0..self.blade_count {
             let angle = i as f64 * angle_step;
-            let blade = CSG::cylinder(self.blade_diameter / 2.0, self.frame_depth / 2.0)
+            let blade = CSG::cylinder_z(self.blade_diameter / 2.0, self.frame_depth / 2.0)
                 .rotate(0.0, 0.0, angle)
                 .translate(Vector3::new(0.0, 0.0, self.frame_depth / 2.0));
             blades = blades.union(&blade);
@@ -39,7 +39,7 @@ impl Fan {
     
     /// Generate the hub of the fan
     pub fn hub(&self) -> CSG<()> {
-        CSG::cylinder(self.hub_diameter / 2.0, self.frame_depth)
+        CSG::cylinder_z(self.hub_diameter / 2.0, self.frame_depth)
     }
     
     /// Generate the mounting holes
@@ -53,7 +53,7 @@ impl Fan {
         ];
         
         for &(x, y) in &offsets {
-            let hole = CSG::cylinder(self.mounting_hole_diameter / 2.0, self.frame_depth)
+            let hole = CSG::cylinder_z(self.mounting_hole_diameter / 2.0, self.frame_depth)
                 .translate(Vector3::new(x, y, 0.0));
             holes = holes.union(&hole);
         }

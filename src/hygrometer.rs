@@ -17,7 +17,7 @@ impl Hygrometer {
 
     /// Generate the sensor hole
     pub fn sensor_hole(&self) -> CSG<()> {
-        CSG::cylinder(self.sensor_diameter / 2.0, self.depth)
+        CSG::cylinder_z(self.sensor_diameter / 2.0, self.depth)
             .translate(Vector3::new(0.0, 0.0, self.depth / 2.0))
     }
 

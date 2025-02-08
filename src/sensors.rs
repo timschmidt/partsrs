@@ -22,7 +22,7 @@ impl Sensor {
     
     /// Generate the lens of the sensor
     pub fn lens(&self) -> CSG<()> {
-        CSG::cylinder(self.lens_diameter / 2.0, self.lens_depth)
+        CSG::cylinder_z(self.lens_diameter / 2.0, self.lens_depth)
             .translate(Vector3::new(0.0, 0.0, self.body_depth))
     }
     
@@ -37,7 +37,7 @@ impl Sensor {
         ];
         
         for &(x, y) in &offsets {
-            let hole = CSG::cylinder(self.mounting_hole_diameter / 2.0, self.body_depth)
+            let hole = CSG::cylinder_z(self.mounting_hole_diameter / 2.0, self.body_depth)
                 .translate(Vector3::new(x, y, 0.0));
             holes = holes.union(&hole);
         }

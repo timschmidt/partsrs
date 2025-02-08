@@ -19,7 +19,7 @@ impl GreenTerminal {
 
     /// Generate the wire holes
     pub fn holes(&self) -> CSG<()> {
-        let hole = CSG::cylinder(self.hole_diameter / 2.0, self.depth + 1.0);
+        let hole = CSG::cylinder_z(self.hole_diameter / 2.0, self.depth + 1.0);
         let mut holes = CSG::new();
         let start_x = -((self.hole_count as f64 - 1.0) / 2.0) * self.hole_spacing;
 

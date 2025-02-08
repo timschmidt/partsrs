@@ -16,12 +16,12 @@ pub struct Antenna {
 impl Antenna {
     /// Generate the base of the antenna
     pub fn base(&self) -> CSG<()> {
-        CSG::cylinder(self.base_diameter / 2.0, self.base_height)
+        CSG::cylinder_z(self.base_diameter / 2.0, self.base_height)
     }
     
     /// Generate the rod of the antenna
     pub fn rod(&self) -> CSG<()> {
-        CSG::cylinder(self.rod_diameter / 2.0, self.rod_length)
+        CSG::cylinder_z(self.rod_diameter / 2.0, self.rod_length)
             .translate(Vector3::new(0.0, 0.0, self.base_height))
     }
     
@@ -36,7 +36,7 @@ impl Antenna {
         ];
         
         for &(x, y) in &offsets {
-            let hole = CSG::cylinder(self.mounting_hole_diameter / 2.0, self.base_height)
+            let hole = CSG::cylinder_z(self.mounting_hole_diameter / 2.0, self.base_height)
                 .translate(Vector3::new(x, y, 0.0));
             holes = holes.union(&hole);
         }

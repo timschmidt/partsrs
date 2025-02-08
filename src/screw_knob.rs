@@ -12,12 +12,12 @@ pub struct ScrewKnob {
 impl ScrewKnob {
     /// Generate the main knob body
     pub fn body(&self) -> CSG<()> {
-        CSG::cylinder(self.outer_diameter / 2.0, self.height)
+        CSG::cylinder_z(self.outer_diameter / 2.0, self.height)
     }
 
     /// Generate the screw shaft
     pub fn screw(&self) -> CSG<()> {
-        CSG::cylinder(self.screw_diameter / 2.0, self.screw_length)
+        CSG::cylinder_z(self.screw_diameter / 2.0, self.screw_length)
             .translate(Vector3::new(0.0, 0.0, -self.screw_length))
     }
 

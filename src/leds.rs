@@ -15,7 +15,7 @@ pub struct LED {
 impl LED {
     /// Generate the cylindrical body of the LED
     pub fn body(&self) -> CSG<()> {
-        CSG::cylinder(self.body_diameter / 2.0, self.body_height)
+        CSG::cylinder_z(self.body_diameter / 2.0, self.body_height)
     }
     
     /// Generate the pins of the LED
@@ -27,7 +27,7 @@ impl LED {
         ];
         
         for &(x, y) in &offsets {
-            let pin = CSG::cylinder(self.pin_diameter / 2.0, self.pin_length)
+            let pin = CSG::cylinder_z(self.pin_diameter / 2.0, self.pin_length)
                 .translate(Vector3::new(x, y, -self.pin_length));
             pins = pins.union(&pin);
         }

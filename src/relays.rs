@@ -22,7 +22,7 @@ impl Relay {
     
     /// Generate the coil of the relay
     pub fn coil(&self) -> CSG<()> {
-        CSG::cylinder(self.coil_diameter / 2.0, self.coil_height)
+        CSG::cylinder_z(self.coil_diameter / 2.0, self.coil_height)
             .translate(Vector3::new(0.0, 0.0, self.body_depth))
     }
     
@@ -35,7 +35,7 @@ impl Relay {
         ];
         
         for &(x, y) in &offsets {
-            let contact = CSG::cylinder(self.contact_diameter / 2.0, self.body_depth / 2.0)
+            let contact = CSG::cylinder_z(self.contact_diameter / 2.0, self.body_depth / 2.0)
                 .translate(Vector3::new(x, y, -self.body_depth / 2.0));
             contacts = contacts.union(&contact);
         }

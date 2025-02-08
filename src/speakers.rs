@@ -16,7 +16,7 @@ pub struct Speaker {
 impl Speaker {
     /// Generate the cylindrical body of the speaker
     pub fn body(&self) -> CSG<()> {
-        CSG::cylinder(self.body_diameter / 2.0, self.body_height)
+        CSG::cylinder_z(self.body_diameter / 2.0, self.body_height)
     }
     
     /// Generate the speaker cone
@@ -36,7 +36,7 @@ impl Speaker {
         ];
         
         for &(x, y) in &offsets {
-            let hole = CSG::cylinder(self.mounting_hole_diameter / 2.0, self.body_height)
+            let hole = CSG::cylinder_z(self.mounting_hole_diameter / 2.0, self.body_height)
                 .translate(Vector3::new(x, y, 0.0));
             holes = holes.union(&hole);
         }

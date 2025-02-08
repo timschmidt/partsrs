@@ -14,7 +14,7 @@ pub struct LDR {
 impl LDR {
     /// Generate the cylindrical body of the LDR
     pub fn body(&self) -> CSG<()> {
-        CSG::cylinder(self.body_diameter / 2.0, self.body_height)
+        CSG::cylinder_z(self.body_diameter / 2.0, self.body_height)
     }
     
     /// Generate the leads of the LDR
@@ -26,7 +26,7 @@ impl LDR {
         ];
         
         for &(x, y) in &offsets {
-            let lead = CSG::cylinder(self.lead_diameter / 2.0, self.lead_length)
+            let lead = CSG::cylinder_z(self.lead_diameter / 2.0, self.lead_length)
                 .translate(Vector3::new(x, y, -self.lead_length));
             leads = leads.union(&lead);
         }

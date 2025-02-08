@@ -16,17 +16,17 @@ pub struct BLDCMotor {
 impl BLDCMotor {
     /// Generate the stator of the BLDC motor
     pub fn stator(&self) -> CSG<()> {
-        CSG::cylinder(self.stator_diameter / 2.0, self.height)
+        CSG::cylinder_z(self.stator_diameter / 2.0, self.height)
     }
     
     /// Generate the rotor of the BLDC motor
     pub fn rotor(&self) -> CSG<()> {
-        CSG::cylinder(self.rotor_diameter / 2.0, self.height)
+        CSG::cylinder_z(self.rotor_diameter / 2.0, self.height)
     }
     
     /// Generate the shaft of the BLDC motor
     pub fn shaft(&self) -> CSG<()> {
-        CSG::cylinder(self.shaft_diameter / 2.0, self.shaft_length)
+        CSG::cylinder_z(self.shaft_diameter / 2.0, self.shaft_length)
             .translate(Vector3::new(0.0, 0.0, self.height))
     }
     
@@ -41,7 +41,7 @@ impl BLDCMotor {
         ];
         
         for &(x, y) in &offsets {
-            let hole = CSG::cylinder(self.mounting_hole_diameter / 2.0, self.height)
+            let hole = CSG::cylinder_z(self.mounting_hole_diameter / 2.0, self.height)
                 .translate(Vector3::new(x, y, 0.0));
             holes = holes.union(&hole);
         }

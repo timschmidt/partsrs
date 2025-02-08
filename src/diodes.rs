@@ -15,14 +15,14 @@ pub struct Diode {
 impl Diode {
     /// Generate the cylindrical body of the diode
     pub fn body(&self) -> CSG<()> {
-        CSG::cylinder(self.body_diameter / 2.0, self.body_length)
+        CSG::cylinder_z(self.body_diameter / 2.0, self.body_length)
     }
     
     /// Generate the leads of the diode
     pub fn leads(&self) -> CSG<()> {
-        let lead1 = CSG::cylinder(self.lead_diameter / 2.0, self.lead_length)
+        let lead1 = CSG::cylinder_z(self.lead_diameter / 2.0, self.lead_length)
             .translate(Vector3::new(0.0, 0.0, -self.lead_length));
-        let lead2 = CSG::cylinder(self.lead_diameter / 2.0, self.lead_length)
+        let lead2 = CSG::cylinder_z(self.lead_diameter / 2.0, self.lead_length)
             .translate(Vector3::new(0.0, 0.0, self.body_length));
         
         lead1.union(&lead2)

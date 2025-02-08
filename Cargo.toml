@@ -4,5 +4,6 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-csgrs = "0.11.0"
+csgrs = "0.11.1"
+#csgrs = { path = "../csgrs/" }
 nalgebra = "0.33.2"

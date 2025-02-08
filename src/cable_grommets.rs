@@ -11,12 +11,12 @@ pub struct CableGrommet {
 impl CableGrommet {
     /// Generate the outer body
     pub fn body(&self) -> CSG<()> {
-        CSG::cylinder(self.outer_diameter / 2.0, self.height)
+        CSG::cylinder_z(self.outer_diameter / 2.0, self.height)
     }
 
     /// Generate the inner cable hole
     pub fn hole(&self) -> CSG<()> {
-        CSG::cylinder(self.inner_diameter / 2.0, self.height + 1.0)
+        CSG::cylinder_z(self.inner_diameter / 2.0, self.height + 1.0)
     }
 
     /// Assemble the complete cable grommet

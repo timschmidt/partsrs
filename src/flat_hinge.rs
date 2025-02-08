@@ -21,12 +21,12 @@ impl FlatHinge {
 
     /// Generate the pin
     pub fn pin(&self) -> CSG<()> {
-        CSG::cylinder(self.pin_diameter / 2.0, self.thickness * 3.0)
+        CSG::cylinder_z(self.pin_diameter / 2.0, self.thickness * 3.0)
     }
 
     /// Generate the mounting holes
     pub fn holes(&self) -> CSG<()> {
-        let hole = CSG::cylinder(self.hole_diameter / 2.0, self.thickness + 1.0);
+        let hole = CSG::cylinder_z(self.hole_diameter / 2.0, self.thickness + 1.0);
         let mut hole_array = CSG::new();
         let start_x = -((self.hole_count as f64 - 1.0) / 2.0) * self.hole_spacing;
 

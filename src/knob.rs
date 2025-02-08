@@ -12,12 +12,12 @@ pub struct Knob {
 impl Knob {
     /// Generate the main knob body
     pub fn body(&self) -> CSG<()> {
-        CSG::cylinder(self.outer_diameter / 2.0, self.height)
+        CSG::cylinder_z(self.outer_diameter / 2.0, self.height)
     }
 
     /// Generate the shaft hole
     pub fn shaft_hole(&self) -> CSG<()> {
-        CSG::cylinder(self.shaft_diameter / 2.0, self.shaft_depth)
+        CSG::cylinder_z(self.shaft_diameter / 2.0, self.shaft_depth)
     }
 
     /// Assemble the complete knob

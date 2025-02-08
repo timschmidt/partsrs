@@ -12,12 +12,12 @@ pub struct FanGuard {
 impl FanGuard {
     /// Generate the guard body
     pub fn body(&self) -> CSG<()> {
-        CSG::cylinder(self.outer_diameter / 2.0, self.thickness)
+        CSG::cylinder_z(self.outer_diameter / 2.0, self.thickness)
     }
 
     /// Generate the vent holes
     pub fn vents(&self) -> CSG<()> {
-        let vent = CSG::cylinder(self.vent_diameter / 2.0, self.thickness + 1.0);
+        let vent = CSG::cylinder_z(self.vent_diameter / 2.0, self.thickness + 1.0);
         let mut holes = CSG::new();
         let angle_step = 360.0 / self.vent_count as f64;
 

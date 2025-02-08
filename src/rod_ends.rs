@@ -19,12 +19,12 @@ impl RodEnd {
     
     /// Generate the housing of the rod end bearing
     pub fn housing(&self) -> CSG<()> {
-        CSG::cylinder(self.housing_diameter / 2.0, self.housing_thickness)
+        CSG::cylinder_z(self.housing_diameter / 2.0, self.housing_thickness)
     }
     
     /// Generate the shank of the rod end bearing
     pub fn shank(&self) -> CSG<()> {
-        CSG::cylinder(self.shank_diameter / 2.0, self.shank_length)
+        CSG::cylinder_z(self.shank_diameter / 2.0, self.shank_length)
             .translate(Vector3::new(0.0, 0.0, -self.shank_length))
     }
     

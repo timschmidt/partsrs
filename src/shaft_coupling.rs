@@ -11,12 +11,12 @@ pub struct ShaftCoupling {
 impl ShaftCoupling {
     /// Generate the outer body of the coupling
     pub fn body(&self) -> CSG<()> {
-        CSG::cylinder(self.outer_diameter / 2.0, self.length)
+        CSG::cylinder_z(self.outer_diameter / 2.0, self.length)
     }
 
     /// Generate the bore hole
     pub fn bore(&self) -> CSG<()> {
-        CSG::cylinder(self.bore_diameter / 2.0, self.length + 1.0)
+        CSG::cylinder_z(self.bore_diameter / 2.0, self.length + 1.0)
     }
 
     /// Assemble the shaft coupling

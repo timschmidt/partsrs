@@ -18,7 +18,7 @@ impl CameraHousing {
 
     /// Generate the lens hole
     pub fn lens_hole(&self) -> CSG<()> {
-        CSG::cylinder(self.lens_diameter / 2.0, self.lens_depth + 1.0)
+        CSG::cylinder_z(self.lens_diameter / 2.0, self.lens_depth + 1.0)
             .translate(Vector3::new(0.0, 0.0, self.depth / 2.0))
     }
 

@@ -16,12 +16,12 @@ pub struct LinearBearing {
 impl LinearBearing {
     /// Generate the outer shell of the bearing
     pub fn outer_shell(&self) -> CSG<()> {
-        CSG::cylinder(self.outer_diameter / 2.0, self.length)
+        CSG::cylinder_z(self.outer_diameter / 2.0, self.length)
     }
     
     /// Generate the inner bore of the bearing
     pub fn inner_bore(&self) -> CSG<()> {
-        CSG::cylinder(self.inner_diameter / 2.0, self.length)
+        CSG::cylinder_z(self.inner_diameter / 2.0, self.length)
     }
     
     /// Generate the ball bearing rows

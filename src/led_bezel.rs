@@ -11,12 +11,12 @@ pub struct LEDBezel {
 impl LEDBezel {
     /// Generate the bezel body
     pub fn body(&self) -> CSG<()> {
-        CSG::cylinder(self.outer_diameter / 2.0, self.height)
+        CSG::cylinder_z(self.outer_diameter / 2.0, self.height)
     }
 
     /// Generate the LED hole
     pub fn led_hole(&self) -> CSG<()> {
-        CSG::cylinder(self.inner_diameter / 2.0, self.height + 1.0)
+        CSG::cylinder_z(self.inner_diameter / 2.0, self.height + 1.0)
     }
 
     /// Assemble the complete LED bezel

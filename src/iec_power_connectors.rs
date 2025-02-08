@@ -18,7 +18,7 @@ impl IECConnector {
 
     /// Generate the mounting holes
     pub fn mount_holes(&self) -> CSG<()> {
-        let hole = CSG::cylinder(3.0, self.depth); // Assuming M3 screws
+        let hole = CSG::cylinder_z(3.0, self.depth); // Assuming M3 screws
         hole.translate(Vector3::new(self.mount_hole_spacing / 2.0, 0.0, 0.0))
             .union(&hole.translate(Vector3::new(-self.mount_hole_spacing / 2.0, 0.0, 0.0)))
     }

@@ -16,12 +16,12 @@ pub struct Joystick {
 impl Joystick {
     /// Generate the cylindrical base of the joystick
     pub fn base(&self) -> CSG<()> {
-        CSG::cylinder(self.base_diameter / 2.0, self.base_height)
+        CSG::cylinder_z(self.base_diameter / 2.0, self.base_height)
     }
     
     /// Generate the stick of the joystick
     pub fn stick(&self) -> CSG<()> {
-        CSG::cylinder(self.stick_diameter / 2.0, self.stick_length)
+        CSG::cylinder_z(self.stick_diameter / 2.0, self.stick_length)
             .translate(Vector3::new(0.0, 0.0, self.base_height))
     }
     

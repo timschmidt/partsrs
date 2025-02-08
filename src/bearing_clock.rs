@@ -20,13 +20,13 @@ impl BearingBlock {
 
     /// Generate the bearing hole
     pub fn bearing_hole(&self) -> CSG<()> {
-        CSG::cylinder(self.bearing_diameter / 2.0, self.bearing_depth)
+        CSG::cylinder_z(self.bearing_diameter / 2.0, self.bearing_depth)
             .translate(Vector3::new(0.0, 0.0, self.depth / 2.0))
     }
 
     /// Generate the mounting holes
     pub fn mount_holes(&self) -> CSG<()> {
-        let hole = CSG::cylinder(self.mount_hole_diameter / 2.0, self.depth);
+        let hole = CSG::cylinder_z(self.mount_hole_diameter / 2.0, self.depth);
         hole.translate(Vector3::new(self.mount_hole_spacing / 2.0, 0.0, 0.0))
             .union(&hole.translate(Vector3::new(-self.mount_hole_spacing / 2.0, 0.0, 0.0)))
     }

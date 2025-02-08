@@ -11,12 +11,12 @@ pub struct BallBearing {
 impl BallBearing {
     /// Generate the outer race
     pub fn outer_race(&self) -> CSG<()> {
-        CSG::cylinder(self.outer_diameter / 2.0, self.width)
+        CSG::cylinder_z(self.outer_diameter / 2.0, self.width)
     }
 
     /// Generate the inner race
     pub fn inner_race(&self) -> CSG<()> {
-        CSG::cylinder(self.inner_diameter / 2.0, self.width + 1.0)
+        CSG::cylinder_z(self.inner_diameter / 2.0, self.width + 1.0)
     }
 
     /// Assemble the complete ball bearing

@@ -15,12 +15,12 @@ pub struct Pulley {
 impl Pulley {
     /// Generate the outer cylindrical body of the pulley
     pub fn outer_body(&self) -> CSG<()> {
-        CSG::cylinder(self.outer_diameter / 2.0, self.width)
+        CSG::cylinder_z(self.outer_diameter / 2.0, self.width)
     }
     
     /// Generate the inner hole of the pulley
     pub fn hole(&self) -> CSG<()> {
-        CSG::cylinder(self.inner_diameter / 2.0, self.width)
+        CSG::cylinder_z(self.inner_diameter / 2.0, self.width)
     }
     
     /// Generate the grooves on the pulley
@@ -29,7 +29,7 @@ impl Pulley {
         let spacing = self.width / (self.groove_count as f64 + 1.0);
         
         for i in 1..=self.groove_count {
-            let groove = CSG::cylinder((self.outer_diameter / 2.0) - self.groove_depth, spacing / 2.0)
+            let groove = CSG::cylinder_z((self.outer_diameter / 2.0) - self.groove_depth, spacing / 2.0)
                 .translate(Vector3::new(0.0, 0.0, i as f64 * spacing - (self.width / 2.0)));
             grooves = grooves.union(&groove);
         }

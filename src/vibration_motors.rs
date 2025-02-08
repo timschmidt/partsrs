@@ -16,18 +16,18 @@ pub struct VibrationMotor {
 impl VibrationMotor {
     /// Generate the cylindrical body of the motor
     pub fn body(&self) -> CSG<()> {
-        CSG::cylinder(self.body_diameter / 2.0, self.body_height)
+        CSG::cylinder_z(self.body_diameter / 2.0, self.body_height)
     }
     
     /// Generate the eccentric mass of the motor
     pub fn eccentric_mass(&self) -> CSG<()> {
-        CSG::cylinder(self.eccentric_mass_diameter / 2.0, self.eccentric_mass_thickness)
+        CSG::cylinder_z(self.eccentric_mass_diameter / 2.0, self.eccentric_mass_thickness)
             .translate(Vector3::new(self.body_diameter / 4.0, 0.0, self.body_height / 2.0))
     }
     
     /// Generate the shaft of the motor
     pub fn shaft(&self) -> CSG<()> {
-        CSG::cylinder(self.shaft_diameter / 2.0, self.shaft_length)
+        CSG::cylinder_z(self.shaft_diameter / 2.0, self.shaft_length)
             .translate(Vector3::new(0.0, 0.0, self.body_height))
     }
     
