@@ -30,7 +30,7 @@ impl Bearing {
             let num_grooves = (self.length / spacing).floor() as i32;
             for i in 0..num_grooves {
                 let groove = CSG::cylinder(diameter / 2.0, spacing / 4.0)
-                    .translate(0.0, 0.0, i as f64 * spacing);
+                    .translate(Vector3::new(0.0, 0.0, i as f64 * spacing));
                 grooves = grooves.union(&groove);
             }
             Some(grooves)

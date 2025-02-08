@@ -18,7 +18,7 @@ impl Variac {
     /// Generate the adjustment knob
     pub fn knob(&self) -> CSG<()> {
         CSG::cylinder(self.knob_diameter / 2.0, self.knob_height)
-            .translate(0.0, 0.0, self.height)
+            .translate(Vector3::new(0.0, 0.0, self.height))
     }
 
     /// Assemble the full Variac transformer

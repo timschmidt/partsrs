@@ -30,7 +30,7 @@ impl Pulley {
         
         for i in 1..=self.groove_count {
             let groove = CSG::cylinder((self.outer_diameter / 2.0) - self.groove_depth, spacing / 2.0)
-                .translate(0.0, 0.0, i as f64 * spacing - (self.width / 2.0));
+                .translate(Vector3::new(0.0, 0.0, i as f64 * spacing - (self.width / 2.0)));
             grooves = grooves.union(&groove);
         }
         

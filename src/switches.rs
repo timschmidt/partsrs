@@ -23,7 +23,7 @@ impl Switch {
     /// Generate the button of the switch
     pub fn button(&self) -> CSG<()> {
         CSG::cylinder(self.button_diameter / 2.0, self.button_height)
-            .translate(0.0, 0.0, self.body_depth)
+            .translate(Vector3::new(0.0, 0.0, self.body_depth))
     }
     
     /// Generate the terminals of the switch
@@ -36,7 +36,7 @@ impl Switch {
         
         for &(x, y) in &offsets {
             let terminal = CSG::cylinder(self.terminal_diameter / 2.0, self.body_depth / 2.0)
-                .translate(x, y, -self.body_depth / 2.0);
+                .translate(Vector3::new(x, y, -self.body_depth / 2.0));
             terminals = terminals.union(&terminal);
         }
         

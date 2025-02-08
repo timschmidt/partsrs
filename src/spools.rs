@@ -25,7 +25,7 @@ impl Spool {
     /// Generate the hub of the spool
     pub fn hub(&self) -> CSG<()> {
         CSG::cylinder(self.hub_diameter / 2.0, self.hub_width)
-            .translate(0.0, 0.0, (self.width - self.hub_width) / 2.0)
+            .translate(Vector3::new(0.0, 0.0, (self.width - self.hub_width) / 2.0))
     }
     
     /// Generate the full spool model

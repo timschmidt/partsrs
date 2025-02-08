@@ -23,7 +23,7 @@ impl Transformer {
     /// Generate the windings of the transformer
     pub fn windings(&self) -> CSG<()> {
         CSG::cylinder(self.winding_diameter / 2.0, self.winding_height)
-            .translate(0.0, 0.0, self.core_depth / 2.0)
+            .translate(Vector3::new(0.0, 0.0, self.core_depth / 2.0))
     }
     
     /// Generate the mounting holes
@@ -38,7 +38,7 @@ impl Transformer {
         
         for &(x, y) in &offsets {
             let hole = CSG::cylinder(self.mounting_hole_diameter / 2.0, self.core_depth)
-                .translate(x, y, 0.0);
+                .translate(Vector3::new(x, y, 0.0));
             holes = holes.union(&hole);
         }
         

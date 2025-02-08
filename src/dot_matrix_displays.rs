@@ -35,7 +35,7 @@ impl DotMatrixDisplay {
             for col in 0..self.columns {
                 let x_offset = start_x + col as f64 * self.pixel_spacing;
                 let y_offset = start_y + row as f64 * self.pixel_spacing;
-                let pixel = self.pixel().translate(x_offset, y_offset, self.panel_depth / 2.0);
+                let pixel = self.pixel().translate(Vector3::new(x_offset, y_offset, self.panel_depth / 2.0));
                 display = display.union(&pixel);
             }
         }

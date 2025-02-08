@@ -19,7 +19,7 @@ impl MicroView {
     /// Generate the screen cutout
     pub fn screen(&self) -> CSG<()> {
         CSG::prism(self.screen_width, self.screen_height, self.depth + 1.0)
-            .translate(0.0, 0.0, self.depth / 2.0)
+            .translate(Vector3::new(0.0, 0.0, self.depth / 2.0))
     }
 
     /// Assemble the full MicroView display

@@ -20,15 +20,15 @@ impl Button {
     /// Generate the button cap
     pub fn cap(&self) -> CSG<()> {
         CSG::cylinder(self.cap_diameter / 2.0, self.cap_height)
-            .translate(0.0, 0.0, self.body_height)
+            .translate(Vector3::new(0.0, 0.0, self.body_height))
     }
 
     /// Generate the button pins
     pub fn pins(&self) -> CSG<()> {
         let pin = CSG::cylinder(self.pin_diameter / 2.0, self.pin_length);
         let spacing = self.body_diameter / 3.0;
-        pin.translate(-spacing, 0.0, -self.pin_length)
-            .union(&pin.translate(spacing, 0.0, -self.pin_length))
+        pin.translate(Vector3::new(-spacing, 0.0, -self.pin_length))
+            .union(&pin.translate(Vector3::new(spacing, 0.0, -self.pin_length)))
     }
 
     /// Assemble the complete button

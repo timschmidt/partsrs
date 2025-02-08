@@ -23,7 +23,7 @@ impl Button {
     /// Generate the button cap
     pub fn cap(&self) -> CSG<()> {
         CSG::cylinder(self.button_diameter / 2.0, self.button_height)
-            .translate(0.0, 0.0, self.body_height)
+            .translate(Vector3::new(0.0, 0.0, self.body_height))
     }
     
     /// Generate the pins of the button
@@ -36,7 +36,7 @@ impl Button {
         
         for &(x, y) in &offsets {
             let pin = CSG::cylinder(self.pin_diameter / 2.0, self.pin_length)
-                .translate(x, y, -self.pin_length);
+                .translate(Vector3::new(x, y, -self.pin_length));
             pins = pins.union(&pin);
         }
         

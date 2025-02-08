@@ -19,7 +19,7 @@ impl TTrack {
     /// Generate the T-slot
     pub fn slot(&self) -> CSG<()> {
         CSG::prism(self.slot_width, self.length, self.slot_depth)
-            .translate(0.0, 0.0, self.base_height / 2.0)
+            .translate(Vector3::new(0.0, 0.0, self.base_height / 2.0))
     }
 
     /// Assemble the complete T-track

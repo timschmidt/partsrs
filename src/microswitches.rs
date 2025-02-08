@@ -23,7 +23,7 @@ impl Microswitch {
     /// Generate the lever of the microswitch
     pub fn lever(&self) -> CSG<()> {
         CSG::prism(self.lever_length, self.lever_width, self.lever_thickness)
-            .translate(0.0, self.body_height / 2.0, self.body_depth / 2.0)
+            .translate(Vector3::new(0.0, self.body_height / 2.0, self.body_depth / 2.0))
     }
     
     /// Generate the mounting holes
@@ -36,7 +36,7 @@ impl Microswitch {
         
         for &(x, y) in &offsets {
             let hole = CSG::cylinder(self.mounting_hole_diameter / 2.0, self.body_depth)
-                .translate(x, y, 0.0);
+                .translate(Vector3::new(x, y, 0.0));
             holes = holes.union(&hole);
         }
         

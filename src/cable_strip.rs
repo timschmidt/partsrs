@@ -26,7 +26,7 @@ impl CableStrip {
 
         for i in 0..self.slot_count {
             let x_offset = start_x + (i as f64) * self.slot_spacing;
-            slots = slots.union(&slot.translate(x_offset, 0.0, self.height / 2.0));
+            slots = slots.union(&slot.translate(Vector3::new(x_offset, 0.0, self.height / 2.0)));
         }
 
         slots

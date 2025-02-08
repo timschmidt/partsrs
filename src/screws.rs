@@ -26,7 +26,7 @@ impl Screw {
     /// Generate the full screw model
     pub fn assemble(&self) -> CSG<()> {
         let mut screw = self.body();
-        let head = self.head().translate(0.0, 0.0, self.length);
+        let head = self.head().translate(Vector3::new(0.0, 0.0, self.length));
         screw = screw.union(&head);
         
         screw

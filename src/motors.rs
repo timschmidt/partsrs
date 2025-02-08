@@ -22,7 +22,7 @@ impl Motor {
     /// Generate the shaft of the motor
     pub fn shaft(&self) -> CSG<()> {
         CSG::cylinder(self.shaft_diameter / 2.0, self.shaft_length)
-            .translate(0.0, 0.0, self.body_length)
+            .translate(Vector3::new(0.0, 0.0, self.body_length))
     }
     
     /// Generate the mounting holes of the motor
@@ -37,7 +37,7 @@ impl Motor {
         
         for &(x, y) in &offsets {
             let hole = CSG::cylinder(self.mounting_hole_diameter / 2.0, self.body_length)
-                .translate(x, y, 0.0);
+                .translate(Vector3::new(x, y, 0.0));
             holes = holes.union(&hole);
         }
         

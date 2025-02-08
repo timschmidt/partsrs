@@ -21,7 +21,7 @@ impl Blower {
     /// Generate the outlet of the blower
     pub fn outlet(&self) -> CSG<()> {
         CSG::prism(self.outlet_width, self.outlet_height, self.body_height)
-            .translate(self.body_diameter / 2.0, 0.0, 0.0)
+            .translate(Vector3::new(self.body_diameter / 2.0, 0.0, 0.0))
     }
     
     /// Generate the fan inside the blower

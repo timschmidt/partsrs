@@ -18,7 +18,7 @@ impl ScrewKnob {
     /// Generate the screw shaft
     pub fn screw(&self) -> CSG<()> {
         CSG::cylinder(self.screw_diameter / 2.0, self.screw_length)
-            .translate(0.0, 0.0, -self.screw_length)
+            .translate(Vector3::new(0.0, 0.0, -self.screw_length))
     }
 
     /// Assemble the complete screw knob

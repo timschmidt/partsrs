@@ -33,7 +33,7 @@ impl Keypad {
                 let x_offset = start_x + col as f64 * self.key_spacing;
                 let y_offset = start_y + row as f64 * self.key_spacing;
                 let key = CSG::prism(self.key_width, self.key_height, self.key_depth)
-                    .translate(x_offset, y_offset, self.base_depth);
+                    .translate(Vector3::new(x_offset, y_offset, self.base_depth));
                 keys = keys.union(&key);
             }
         }

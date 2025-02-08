@@ -19,7 +19,7 @@ impl SealingStrip {
     /// Generate the groove in the strip
     pub fn groove(&self) -> CSG<()> {
         CSG::prism(self.groove_width, self.length, self.groove_depth)
-            .translate(0.0, 0.0, -self.groove_depth / 2.0)
+            .translate(Vector3::new(0.0, 0.0, -self.groove_depth / 2.0))
     }
 
     /// Assemble the complete sealing strip

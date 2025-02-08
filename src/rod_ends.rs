@@ -25,7 +25,7 @@ impl RodEnd {
     /// Generate the shank of the rod end bearing
     pub fn shank(&self) -> CSG<()> {
         CSG::cylinder(self.shank_diameter / 2.0, self.shank_length)
-            .translate(0.0, 0.0, -self.shank_length)
+            .translate(Vector3::new(0.0, 0.0, -self.shank_length))
     }
     
     /// Generate the full rod end bearing model

@@ -19,7 +19,7 @@ impl FastonTerminal {
     /// Generate the crimp barrel
     pub fn barrel(&self) -> CSG<()> {
         CSG::cylinder(self.barrel_diameter / 2.0, self.barrel_length)
-            .translate(0.0, 0.0, self.length)
+            .translate(Vector3::new(0.0, 0.0, self.length))
     }
 
     /// Assemble the full Faston terminal

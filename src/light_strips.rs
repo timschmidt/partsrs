@@ -26,7 +26,7 @@ impl LightStrip {
         for i in 0..self.led_count {
             let x_offset = start_x + i as f64 * self.led_spacing;
             let led = CSG::cylinder(self.led_diameter / 2.0, self.strip_thickness)
-                .translate(x_offset, 0.0, self.strip_thickness / 2.0);
+                .translate(Vector3::new(x_offset, 0.0, self.strip_thickness / 2.0));
             leds = leds.union(&led);
         }
         

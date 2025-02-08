@@ -20,13 +20,13 @@ impl ServoMotor {
     /// Generate the rotating shaft
     pub fn shaft(&self) -> CSG<()> {
         CSG::cylinder(self.shaft_diameter / 2.0, self.shaft_length)
-            .translate(0.0, 0.0, self.body_height / 2.0)
+            .translate(Vector3::new(0.0, 0.0, self.body_height / 2.0))
     }
 
     /// Generate the horn
     pub fn horn(&self) -> CSG<()> {
         CSG::cylinder(self.horn_diameter / 2.0, self.shaft_length / 2.0)
-            .translate(0.0, 0.0, self.body_height / 2.0 + self.shaft_length)
+            .translate(Vector3::new(0.0, 0.0, self.body_height / 2.0 + self.shaft_length))
     }
 
     /// Assemble the complete servo motor

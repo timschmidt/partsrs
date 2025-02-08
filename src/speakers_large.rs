@@ -22,7 +22,7 @@ impl LargeSpeaker {
     /// Generate the speaker cone
     pub fn cone(&self) -> CSG<()> {
         CSG::cone(self.cone_diameter / 2.0, self.cone_depth)
-            .translate(0.0, 0.0, self.body_height)
+            .translate(Vector3::new(0.0, 0.0, self.body_height))
     }
     
     /// Generate the mounting holes of the speaker
@@ -37,7 +37,7 @@ impl LargeSpeaker {
         
         for &(x, y) in &offsets {
             let hole = CSG::cylinder(self.mounting_hole_diameter / 2.0, self.body_height)
-                .translate(x, y, 0.0);
+                .translate(Vector3::new(x, y, 0.0));
             holes = holes.union(&hole);
         }
         

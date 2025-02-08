@@ -20,13 +20,13 @@ impl FuseHolder {
     /// Generate the cap of the fuse holder
     pub fn cap(&self) -> CSG<()> {
         CSG::cylinder(self.cap_diameter / 2.0, self.cap_length)
-            .translate(0.0, 0.0, self.body_length)
+            .translate(Vector3::new(0.0, 0.0, self.body_length))
     }
 
     /// Generate the fuse slot
     pub fn fuse_slot(&self) -> CSG<()> {
         CSG::cylinder(self.fuse_diameter / 2.0, self.fuse_length)
-            .translate(0.0, 0.0, self.body_length / 2.0)
+            .translate(Vector3::new(0.0, 0.0, self.body_length / 2.0))
     }
 
     /// Assemble the complete fuse holder

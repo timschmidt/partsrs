@@ -25,7 +25,7 @@ impl OpenGrabMagnet {
         for i in 0..self.poles {
             let x_offset = (i as f64) * (self.pole_width + gap) - self.width / 2.0;
             pole_array = pole_array.union(&CSG::prism(self.pole_width, self.pole_length, 1.0)
-                .translate(x_offset, 0.0, self.magnet_height / 2.0));
+                .translate(Vector3::new(x_offset, 0.0, self.magnet_height / 2.0)));
         }
 
         pole_array

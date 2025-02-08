@@ -23,7 +23,7 @@ impl PanelMeter {
     /// Generate the display of the panel meter
     pub fn display(&self) -> CSG<()> {
         CSG::prism(self.display_width, self.display_height, self.display_depth)
-            .translate(0.0, 0.0, self.body_depth - self.display_depth)
+            .translate(Vector3::new(0.0, 0.0, self.body_depth - self.display_depth))
     }
     
     /// Generate the mounting holes
@@ -38,7 +38,7 @@ impl PanelMeter {
         
         for &(x, y) in &offsets {
             let hole = CSG::cylinder(self.mounting_hole_diameter / 2.0, self.body_depth)
-                .translate(x, y, 0.0);
+                .translate(Vector3::new(x, y, 0.0));
             holes = holes.union(&hole);
         }
         

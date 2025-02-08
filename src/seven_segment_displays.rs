@@ -33,7 +33,7 @@ impl SevenSegmentDisplay {
         
         for &(x, y) in &positions {
             let segment = CSG::prism(self.segment_width, self.segment_height, self.segment_depth)
-                .translate(x, y, self.digit_depth / 2.0);
+                .translate(Vector3::new(x, y, self.digit_depth / 2.0));
             segments = segments.union(&segment);
         }
         
@@ -47,8 +47,8 @@ impl SevenSegmentDisplay {
         
         for i in 0..self.num_digits {
             let x_offset = start_x + i as f64 * self.digit_spacing;
-            let digit = self.digit().translate(x_offset, 0.0, 0.0);
-            let segments = self.segments().translate(x_offset, 0.0, 0.0);
+            let digit = self.digit().translate(Vector3::new(x_offset, 0.0, 0.0));
+            let segments = self.segments().translate(Vector3::new(x_offset, 0.0, 0.0));
             
             display = display.union(&digit);
             display = display.union(&segments);

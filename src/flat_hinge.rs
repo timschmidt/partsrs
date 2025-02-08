@@ -16,7 +16,7 @@ impl FlatHinge {
     /// Generate the hinge leaves
     pub fn leaves(&self) -> CSG<()> {
         let leaf = CSG::prism(self.width, self.height, self.thickness);
-        leaf.union(&leaf.translate(0.0, 0.0, self.thickness * 2.0))
+        leaf.union(&leaf.translate(Vector3::new(0.0, 0.0, self.thickness * 2.0)))
     }
 
     /// Generate the pin
@@ -32,7 +32,7 @@ impl FlatHinge {
 
         for i in 0..self.hole_count {
             let x_offset = start_x + (i as f64) * self.hole_spacing;
-            hole_array = hole_array.union(&hole.translate(x_offset, 0.0, 0.0));
+            hole_array = hole_array.union(&hole.translate(Vector3::new(x_offset, 0.0, 0.0)));
         }
 
         hole_array

@@ -21,7 +21,7 @@ impl Spring {
             coil = coil.union(
                 &CSG::torus(self.coil_diameter / 2.0, self.wire_diameter / 2.0)
                     .rotate(0.0, angle, 0.0)
-                    .translate(0.0, 0.0, z_offset),
+                    .translate(Vector3::new(0.0, 0.0, z_offset)),
             );
         }
 

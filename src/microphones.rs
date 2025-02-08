@@ -22,7 +22,7 @@ impl Microphone {
     /// Generate the grille of the microphone
     pub fn grille(&self) -> CSG<()> {
         CSG::cylinder(self.grille_diameter / 2.0, self.grille_height)
-            .translate(0.0, 0.0, self.body_height)
+            .translate(Vector3::new(0.0, 0.0, self.body_height))
     }
     
     /// Generate the mounting holes of the microphone
@@ -37,7 +37,7 @@ impl Microphone {
         
         for &(x, y) in &offsets {
             let hole = CSG::cylinder(self.mounting_hole_diameter / 2.0, self.body_height)
-                .translate(x, y, 0.0);
+                .translate(Vector3::new(x, y, 0.0));
             holes = holes.union(&hole);
         }
         

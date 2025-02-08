@@ -18,8 +18,8 @@ impl AxialCapacitor {
     /// Generate the leads
     pub fn leads(&self) -> CSG<()> {
         let lead = CSG::cylinder(self.lead_diameter / 2.0, self.lead_length);
-        lead.translate(0.0, 0.0, -self.lead_length)
-            .union(&lead.translate(0.0, 0.0, self.body_length))
+        lead.translate(Vector3::new(0.0, 0.0, -self.lead_length))
+            .union(&lead.translate(Vector3::new(0.0, 0.0, self.body_length)))
     }
 
     /// Assemble the complete axial capacitor

@@ -22,8 +22,8 @@ impl Component {
         let lead = CSG::cylinder(self.lead_diameter / 2.0, self.lead_length);
         let offset = self.lead_spacing / 2.0;
 
-        lead.translate(offset, 0.0, -self.lead_length)
-            .union(&lead.translate(-offset, 0.0, -self.lead_length))
+        lead.translate(Vector3::new(offset, 0.0, -self.lead_length))
+            .union(&lead.translate(Vector3::new(-offset, 0.0, -self.lead_length)))
     }
 
     /// Assemble the full electronic component

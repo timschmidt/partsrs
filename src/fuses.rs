@@ -20,9 +20,9 @@ impl Fuse {
     /// Generate the caps of the fuse
     pub fn caps(&self) -> CSG<()> {
         let cap1 = CSG::cylinder(self.cap_diameter / 2.0, self.cap_height)
-            .translate(0.0, 0.0, -self.cap_height);
+            .translate(Vector3::new(0.0, 0.0, -self.cap_height));
         let cap2 = CSG::cylinder(self.cap_diameter / 2.0, self.cap_height)
-            .translate(0.0, 0.0, self.body_length);
+            .translate(Vector3::new(0.0, 0.0, self.body_length));
         
         cap1.union(&cap2)
     }

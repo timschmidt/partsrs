@@ -22,13 +22,13 @@ impl Joystick {
     /// Generate the stick of the joystick
     pub fn stick(&self) -> CSG<()> {
         CSG::cylinder(self.stick_diameter / 2.0, self.stick_length)
-            .translate(0.0, 0.0, self.base_height)
+            .translate(Vector3::new(0.0, 0.0, self.base_height))
     }
     
     /// Generate the top handle of the joystick
     pub fn top(&self) -> CSG<()> {
         CSG::sphere(self.top_diameter / 2.0)
-            .translate(0.0, 0.0, self.base_height + self.stick_length + self.top_height / 2.0)
+            .translate(Vector3::new(0.0, 0.0, self.base_height + self.stick_length + self.top_height / 2.0))
     }
     
     /// Generate the full joystick model

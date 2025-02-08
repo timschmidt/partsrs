@@ -24,7 +24,7 @@ impl ToggleSwitch {
     /// Generate the lever of the toggle switch
     pub fn lever(&self) -> CSG<()> {
         CSG::cylinder(self.lever_diameter / 2.0, self.lever_length)
-            .translate(0.0, 0.0, self.body_depth)
+            .translate(Vector3::new(0.0, 0.0, self.body_depth))
     }
     
     /// Generate the pins of the toggle switch
@@ -38,7 +38,7 @@ impl ToggleSwitch {
         
         for &(x, y) in &offsets {
             let pin = CSG::cylinder(self.pin_diameter / 2.0, self.pin_length)
-                .translate(x, y, -self.pin_length);
+                .translate(Vector3::new(x, y, -self.pin_length));
             pins = pins.union(&pin);
         }
         

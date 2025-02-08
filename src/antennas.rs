@@ -22,7 +22,7 @@ impl Antenna {
     /// Generate the rod of the antenna
     pub fn rod(&self) -> CSG<()> {
         CSG::cylinder(self.rod_diameter / 2.0, self.rod_length)
-            .translate(0.0, 0.0, self.base_height)
+            .translate(Vector3::new(0.0, 0.0, self.base_height))
     }
     
     /// Generate the mounting holes
@@ -37,7 +37,7 @@ impl Antenna {
         
         for &(x, y) in &offsets {
             let hole = CSG::cylinder(self.mounting_hole_diameter / 2.0, self.base_height)
-                .translate(x, y, 0.0);
+                .translate(Vector3::new(x, y, 0.0));
             holes = holes.union(&hole);
         }
         

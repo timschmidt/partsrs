@@ -18,8 +18,8 @@ impl Handle {
     /// Generate the screw holes
     pub fn screw_holes(&self) -> CSG<()> {
         let hole = CSG::cylinder(self.screw_diameter / 2.0, self.height);
-        hole.translate(self.length / 2.0, 0.0, 0.0)
-            .union(&hole.translate(-self.length / 2.0, 0.0, 0.0))
+        hole.translate(Vector3::new(self.length / 2.0, 0.0, 0.0))
+            .union(&hole.translate(Vector3::new(-self.length / 2.0, 0.0, 0.0)))
     }
 
     /// Assemble the complete handle

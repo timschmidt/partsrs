@@ -23,7 +23,7 @@ impl RingTerminal {
     /// Generate the terminal tab
     pub fn tab(&self) -> CSG<()> {
         CSG::prism(self.terminal_length, self.terminal_width, self.terminal_thickness)
-            .translate(0.0, self.outer_diameter / 2.0, 0.0)
+            .translate(Vector3::new(0.0, self.outer_diameter / 2.0, 0.0))
     }
     
     /// Generate the full ring terminal model

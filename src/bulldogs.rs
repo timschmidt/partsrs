@@ -22,13 +22,13 @@ impl BulldogClamp {
     /// Generate the jaws of the bulldog clamp
     pub fn jaws(&self) -> CSG<()> {
         CSG::prism(self.jaw_width, self.body_height, self.jaw_depth)
-            .translate(0.0, 0.0, self.body_depth / 2.0)
+            .translate(Vector3::new(0.0, 0.0, self.body_depth / 2.0))
     }
     
     /// Generate the spring mechanism
     pub fn spring(&self) -> CSG<()> {
         CSG::cylinder(self.spring_diameter / 2.0, self.spring_length)
-            .translate(0.0, 0.0, self.body_depth / 2.0)
+            .translate(Vector3::new(0.0, 0.0, self.body_depth / 2.0))
     }
     
     /// Generate the full bulldog clamp model

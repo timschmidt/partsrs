@@ -25,7 +25,7 @@ impl SSRShroud {
 
         for i in 0..self.vent_hole_count {
             let x_offset = start_x + (i as f64) * self.vent_hole_spacing;
-            holes = holes.union(&hole.translate(x_offset, 0.0, self.height / 2.0));
+            holes = holes.union(&hole.translate(Vector3::new(x_offset, 0.0, self.height / 2.0)));
         }
 
         holes

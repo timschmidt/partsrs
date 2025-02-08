@@ -30,7 +30,7 @@ impl Fan {
             let angle = i as f64 * angle_step;
             let blade = CSG::cylinder(self.blade_diameter / 2.0, self.frame_depth / 2.0)
                 .rotate(0.0, 0.0, angle)
-                .translate(0.0, 0.0, self.frame_depth / 2.0);
+                .translate(Vector3::new(0.0, 0.0, self.frame_depth / 2.0));
             blades = blades.union(&blade);
         }
         
@@ -54,7 +54,7 @@ impl Fan {
         
         for &(x, y) in &offsets {
             let hole = CSG::cylinder(self.mounting_hole_diameter / 2.0, self.frame_depth)
-                .translate(x, y, 0.0);
+                .translate(Vector3::new(x, y, 0.0));
             holes = holes.union(&hole);
         }
         

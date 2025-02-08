@@ -29,7 +29,7 @@ impl Battery {
         
         for &(x, y) in &offsets {
             let terminal = CSG::cylinder(self.terminal_diameter / 2.0, self.terminal_height)
-                .translate(x, y, self.body_depth);
+                .translate(Vector3::new(x, y, self.body_depth));
             terminals = terminals.union(&terminal);
         }
         

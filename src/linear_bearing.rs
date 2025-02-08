@@ -35,7 +35,7 @@ impl LinearBearing {
                 let x_offset = start_x + col as f64 * self.ball_spacing;
                 let z_offset = start_z + row as f64 * self.ball_spacing;
                 let ball = CSG::sphere(self.ball_diameter / 2.0)
-                    .translate(x_offset, self.outer_diameter / 2.0, z_offset);
+                    .translate(Vector3::new(x_offset, self.outer_diameter / 2.0, z_offset));
                 balls = balls.union(&ball);
             }
         }

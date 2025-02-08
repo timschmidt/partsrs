@@ -22,14 +22,14 @@ impl PhotoInterrupter {
     /// Generate the slot in the interrupter
     pub fn slot(&self) -> CSG<()> {
         CSG::prism(self.slot_width, self.slot_depth, self.slot_height)
-            .translate(0.0, 0.0, self.body_height / 2.0)
+            .translate(Vector3::new(0.0, 0.0, self.body_height / 2.0))
     }
 
     /// Generate the connector pins
     pub fn pins(&self) -> CSG<()> {
         let pin = CSG::cylinder(self.pin_diameter / 2.0, self.pin_length);
-        pin.translate(-self.body_width / 4.0, 0.0, -self.pin_length)
-            .union(&pin.translate(self.body_width / 4.0, 0.0, -self.pin_length))
+        pin.translate(Vector3::new(-self.body_width / 4.0, 0.0, -self.pin_length))
+            .union(&pin.translate(Vector3::new(self.body_width / 4.0, 0.0, -self.pin_length)))
     }
 
     /// Assemble the complete photo interrupter

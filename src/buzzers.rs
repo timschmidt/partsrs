@@ -34,7 +34,7 @@ impl Buzzer {
         
         for &(x, y) in &offsets {
             let pin = CSG::cylinder(self.pin_diameter / 2.0, self.pin_length)
-                .translate(x, y, -self.pin_length);
+                .translate(Vector3::new(x, y, -self.pin_length));
             pins = pins.union(&pin);
         }
         

@@ -26,7 +26,7 @@ impl Inductor {
         for i in 0..self.winding_count {
             let z_offset = start_z + i as f64 * self.winding_spacing;
             let winding = CSG::torus(self.winding_diameter / 2.0, self.winding_spacing / 2.0)
-                .translate(0.0, 0.0, z_offset);
+                .translate(Vector3::new(0.0, 0.0, z_offset));
             windings = windings.union(&winding);
         }
         

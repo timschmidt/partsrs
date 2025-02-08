@@ -38,7 +38,7 @@ impl OLEDDisplay {
         
         for &(x, y) in &offsets {
             let hole = CSG::cylinder(self.mounting_hole_diameter / 2.0, self.bezel_depth)
-                .translate(x, y, 0.0);
+                .translate(Vector3::new(x, y, 0.0));
             holes = holes.union(&hole);
         }
         
@@ -48,7 +48,7 @@ impl OLEDDisplay {
     /// Generate the full OLED display model
     pub fn assemble(&self) -> CSG<()> {
         let mut display = self.bezel();
-        let screen = self.screen().translate(0.0, 0.0, self.bezel_depth - self.screen_depth);
+        let screen = self.screen().translate(Vector3::new(0.0, 0.0, self.bezel_depth - self.screen_depth));
         let holes = self.mounting_holes();
         
         display = display.union(&screen);

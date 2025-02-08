@@ -19,7 +19,7 @@ impl RockerSwitch {
     /// Generate the rocker part
     pub fn rocker(&self) -> CSG<()> {
         CSG::prism(self.rocker_width, self.rocker_height, self.depth / 2.0)
-            .translate(0.0, 0.0, self.depth / 4.0)
+            .translate(Vector3::new(0.0, 0.0, self.depth / 4.0))
     }
 
     /// Assemble the full rocker switch

@@ -19,7 +19,7 @@ impl RibbonClamp {
     /// Generate the ribbon slot
     pub fn slot(&self) -> CSG<()> {
         CSG::prism(self.slot_width, self.height, self.slot_height)
-            .translate(0.0, 0.0, self.depth / 2.0)
+            .translate(Vector3::new(0.0, 0.0, self.depth / 2.0))
     }
 
     /// Assemble the complete ribbon clamp

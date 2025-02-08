@@ -25,7 +25,7 @@ impl Belt {
         
         for i in 0..num_teeth {
             let tooth = CSG::prism(self.tooth_pitch, self.width, self.tooth_height)
-                .translate(i as f64 * self.tooth_pitch - (self.length / 2.0), 0.0, self.thickness);
+                .translate(Vector3::new(i as f64 * self.tooth_pitch - (self.length / 2.0), 0.0, self.thickness));
             teeth = teeth.union(&tooth);
         }
         

@@ -20,13 +20,13 @@ impl JHead {
     /// Generate the heat break
     pub fn heat_break(&self) -> CSG<()> {
         CSG::cylinder(self.heat_break_diameter / 2.0, self.heat_break_length)
-            .translate(0.0, 0.0, -self.heat_break_length)
+            .translate(Vector3::new(0.0, 0.0, -self.heat_break_length))
     }
 
     /// Generate the nozzle
     pub fn nozzle(&self) -> CSG<()> {
         CSG::cylinder(self.nozzle_diameter / 2.0, self.nozzle_length)
-            .translate(0.0, 0.0, -self.nozzle_length - self.heat_break_length)
+            .translate(Vector3::new(0.0, 0.0, -self.nozzle_length - self.heat_break_length))
     }
 
     /// Assemble the complete hot end

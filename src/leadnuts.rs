@@ -26,7 +26,7 @@ impl Leadnut {
     /// Generate the flange of the leadnut
     pub fn flange(&self) -> CSG<()> {
         CSG::cylinder(self.flange_diameter / 2.0, self.flange_thickness)
-            .translate(0.0, 0.0, self.length)
+            .translate(Vector3::new(0.0, 0.0, self.length))
     }
     
     /// Generate the mounting holes of the leadnut
@@ -39,7 +39,7 @@ impl Leadnut {
         
         for &(x, y) in &offsets {
             let hole = CSG::cylinder(self.mounting_hole_diameter / 2.0, self.flange_thickness)
-                .translate(x, y, self.length);
+                .translate(Vector3::new(x, y, self.length));
             holes = holes.union(&hole);
         }
         

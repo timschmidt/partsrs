@@ -25,7 +25,7 @@ impl FanGuard {
             let angle = i as f64 * angle_step;
             let x_offset = (self.outer_diameter / 3.0) * angle.to_radians().cos();
             let y_offset = (self.outer_diameter / 3.0) * angle.to_radians().sin();
-            holes = holes.union(&vent.translate(x_offset, y_offset, 0.0));
+            holes = holes.union(&vent.translate(Vector3::new(x_offset, y_offset, 0.0)));
         }
 
         holes

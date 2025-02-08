@@ -28,7 +28,7 @@ impl Capacitor {
         
         for &(x, y) in &offsets {
             let lead = CSG::cylinder(self.lead_diameter / 2.0, self.lead_length)
-                .translate(x, y, -self.lead_length);
+                .translate(Vector3::new(x, y, -self.lead_length));
             leads = leads.union(&lead);
         }
         

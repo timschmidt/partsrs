@@ -29,7 +29,7 @@ impl HeatPipe {
         for i in 0..self.fin_count {
             let z_offset = (i as f64) * (self.length / self.fin_count as f64);
             let fin = CSG::cylinder(self.fin_diameter / 2.0, self.fin_thickness)
-                .translate(0.0, 0.0, z_offset);
+                .translate(Vector3::new(0.0, 0.0, z_offset));
             fins = fins.union(&fin);
         }
         fins

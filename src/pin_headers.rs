@@ -26,7 +26,7 @@ impl PinHeader {
 
         for i in 0..self.pin_count {
             let x_offset = (i as f64 - (self.pin_count as f64 - 1.0) / 2.0) * spacing;
-            pin_array = pin_array.union(&pin.translate(x_offset, 0.0, self.base_thickness));
+            pin_array = pin_array.union(&pin.translate(Vector3::new(x_offset, 0.0, self.base_thickness)));
         }
 
         pin_array

@@ -18,7 +18,7 @@ impl AudioJack {
     /// Generate the pin
     pub fn pin(&self) -> CSG<()> {
         CSG::cylinder(self.pin_diameter / 2.0, self.pin_length)
-            .translate(0.0, 0.0, -self.pin_length)
+            .translate(Vector3::new(0.0, 0.0, -self.pin_length))
     }
 
     /// Assemble the complete audio jack

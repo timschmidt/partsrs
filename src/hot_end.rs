@@ -22,13 +22,13 @@ impl HotEnd {
     /// Generate the nozzle of the hot end
     pub fn nozzle(&self) -> CSG<()> {
         CSG::cylinder(self.nozzle_diameter / 2.0, self.nozzle_length)
-            .translate(0.0, 0.0, -self.nozzle_length)
+            .translate(Vector3::new(0.0, 0.0, -self.nozzle_length))
     }
     
     /// Generate the heat break of the hot end
     pub fn heat_break(&self) -> CSG<()> {
         CSG::cylinder(self.heat_break_diameter / 2.0, self.heat_break_length)
-            .translate(0.0, 0.0, self.heater_block_height)
+            .translate(Vector3::new(0.0, 0.0, self.heater_block_height))
     }
     
     /// Generate the full hot end model

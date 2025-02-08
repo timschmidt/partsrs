@@ -19,7 +19,7 @@ impl StrapHandle {
     pub fn holes(&self) -> CSG<()> {
         let hole = CSG::cylinder(self.hole_diameter / 2.0, self.thickness + 1.0);
         hole.translate(self.width / 3.0, 0.0, 0.0)
-            .union(&hole.translate(-self.width / 3.0, 0.0, 0.0))
+            .union(&hole.translate(Vector3::new(-self.width / 3.0, 0.0, 0.0)))
     }
 
     /// Assemble the complete strap handle

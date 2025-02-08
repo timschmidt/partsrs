@@ -29,7 +29,7 @@ impl SMD {
         
         for &(x, y) in &offsets {
             let pad = CSG::prism(self.pad_length, self.pad_width, self.pad_height)
-                .translate(x, y, -self.pad_height);
+                .translate(Vector3::new(x, y, -self.pad_height));
             pads = pads.union(&pad);
         }
         

@@ -21,9 +21,9 @@ impl Diode {
     /// Generate the leads of the diode
     pub fn leads(&self) -> CSG<()> {
         let lead1 = CSG::cylinder(self.lead_diameter / 2.0, self.lead_length)
-            .translate(0.0, 0.0, -self.lead_length);
+            .translate(Vector3::new(0.0, 0.0, -self.lead_length));
         let lead2 = CSG::cylinder(self.lead_diameter / 2.0, self.lead_length)
-            .translate(0.0, 0.0, self.body_length);
+            .translate(Vector3::new(0.0, 0.0, self.body_length));
         
         lead1.union(&lead2)
     }
@@ -31,7 +31,7 @@ impl Diode {
     /// Generate the cathode band marking
     pub fn cathode_band(&self) -> CSG<()> {
         CSG::prism(self.body_diameter, self.cathode_band_width, self.body_diameter)
-            .translate(0.0, self.body_length - self.cathode_band_width / 2.0, 0.0)
+            .translate(Vector3::new(0.0, self.body_length - self.cathode_band_width / 2.0, 0.0))
     }
     
     /// Generate the full diode model

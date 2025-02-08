@@ -30,7 +30,7 @@ impl Veroboard {
             for y in 0..self.hole_count_y {
                 let x_offset = x_start + (x as f64) * self.hole_spacing;
                 let y_offset = y_start + (y as f64) * self.hole_spacing;
-                holes = holes.union(&hole.translate(x_offset, y_offset, 0.0));
+                holes = holes.union(&hole.translate(Vector3::new(x_offset, y_offset, 0.0)));
             }
         }
 

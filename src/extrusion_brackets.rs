@@ -21,8 +21,8 @@ impl ExtrusionBracket {
         let hole = CSG::cylinder(self.hole_diameter / 2.0, self.thickness);
         let offset = self.hole_spacing / 2.0;
 
-        hole.translate(offset, 0.0, 0.0)
-            .union(&hole.translate(-offset, 0.0, 0.0))
+        hole.translate(Vector3::new(offset, 0.0, 0.0))
+            .union(&hole.translate(Vector3::new(-offset, 0.0, 0.0)))
     }
 
     /// Assemble the extrusion bracket

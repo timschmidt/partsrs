@@ -18,8 +18,8 @@ impl DragChainLink {
     /// Generate the pivot holes
     pub fn pivot_holes(&self) -> CSG<()> {
         let hole = CSG::cylinder(self.hole_diameter / 2.0, self.width + 1.0);
-        hole.translate(0.0, -self.length / 2.0, 0.0)
-            .union(&hole.translate(0.0, self.length / 2.0, 0.0))
+        hole.translate(Vector3::new(0.0, -self.length / 2.0, 0.0))
+            .union(&hole.translate(Vector3::new(0.0, self.length / 2.0, 0.0)))
     }
 
     /// Assemble the complete drag chain link

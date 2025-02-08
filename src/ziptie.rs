@@ -21,7 +21,7 @@ impl ZipTie {
     /// Generate the head of the zip tie
     pub fn head(&self) -> CSG<()> {
         CSG::prism(self.head_width, self.head_height, self.head_depth)
-            .translate(self.length / 2.0 - self.head_depth / 2.0, 0.0, 0.0)
+            .translate(Vector3::new(self.length / 2.0 - self.head_depth / 2.0, 0.0, 0.0))
     }
     
     /// Generate the full zip tie model

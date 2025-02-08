@@ -26,7 +26,7 @@ impl DIP {
         for i in 0..self.pin_count {
             let x_offset = start_x + i as f64 * self.pin_spacing;
             let pin = CSG::cylinder(self.pin_diameter / 2.0, self.body_height / 2.0)
-                .translate(x_offset, 0.0, -self.body_height / 2.0);
+                .translate(Vector3::new(x_offset, 0.0, -self.body_height / 2.0));
             pins = pins.union(&pin);
         }
         

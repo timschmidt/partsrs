@@ -20,9 +20,9 @@ impl Resistor {
     /// Generate the leads of the resistor
     pub fn leads(&self) -> CSG<()> {
         let lead1 = CSG::cylinder(self.lead_diameter / 2.0, self.lead_length)
-            .translate(0.0, 0.0, -self.lead_length);
+            .translate(Vector3::new(0.0, 0.0, -self.lead_length));
         let lead2 = CSG::cylinder(self.lead_diameter / 2.0, self.lead_length)
-            .translate(0.0, 0.0, self.body_length);
+            .translate(Vector3::new(0.0, 0.0, self.body_length));
         
         lead1.union(&lead2)
     }

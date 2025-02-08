@@ -19,8 +19,8 @@ impl MainsSocket {
     /// Generate the plug holes
     pub fn plug_holes(&self) -> CSG<()> {
         let hole = CSG::cylinder(self.hole_diameter / 2.0, self.depth + 1.0);
-        hole.translate(-self.hole_spacing / 2.0, 0.0, 0.0)
-            .union(&hole.translate(self.hole_spacing / 2.0, 0.0, 0.0))
+        hole.translate(Vector3::new(-self.hole_spacing / 2.0, 0.0, 0.0))
+            .union(&hole.translate(Vector3::new(self.hole_spacing / 2.0, 0.0, 0.0)))
     }
 
     /// Assemble the complete mains socket

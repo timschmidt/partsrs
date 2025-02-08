@@ -25,7 +25,7 @@ impl Rail {
         
         for i in 0..num_holes {
             let hole = CSG::cylinder(self.hole_diameter / 2.0, self.height)
-                .translate(0.0, 0.0, i as f64 * self.hole_spacing - (self.length / 2.0));
+                .translate(Vector3::new(0.0, 0.0, i as f64 * self.hole_spacing - (self.length / 2.0)));
             holes = holes.union(&hole);
         }
         

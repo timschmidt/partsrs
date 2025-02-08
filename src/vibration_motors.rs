@@ -22,13 +22,13 @@ impl VibrationMotor {
     /// Generate the eccentric mass of the motor
     pub fn eccentric_mass(&self) -> CSG<()> {
         CSG::cylinder(self.eccentric_mass_diameter / 2.0, self.eccentric_mass_thickness)
-            .translate(self.body_diameter / 4.0, 0.0, self.body_height / 2.0)
+            .translate(Vector3::new(self.body_diameter / 4.0, 0.0, self.body_height / 2.0))
     }
     
     /// Generate the shaft of the motor
     pub fn shaft(&self) -> CSG<()> {
         CSG::cylinder(self.shaft_diameter / 2.0, self.shaft_length)
-            .translate(0.0, 0.0, self.body_height)
+            .translate(Vector3::new(0.0, 0.0, self.body_height))
     }
     
     /// Generate the full vibration motor model
