@@ -1,0 +1,39 @@
+use csgrs::CSG;
+
+/// Representation of a Push Button
+#[derive(Debug, Clone)]
+pub struct Button {
+    pub body_diameter: f64,
+    pub body_height: f64,
+    pub cap_diameter: f64,
+    pub cap_height: f64,
+    pub pin_diameter: f64,
+    pub pin_length: f64,
+}
+
+impl Button {
+    /// Generate the button body
+    pub fn body(&self) -> CSG<()> {
+        CSG::cylinder(self.body_diameter / 2.0, self.body_height)
+    }
+
+    /// Generate the button cap
+    pub fn cap(&self) -> CSG<()> {
+        CSG::cylinder(self.cap_diameter / 2.0, self.cap_height)
+            .translate(0.0, 0.0, self.body_height)
+    }
+
+    /// Generate the button pins
+    pub fn pins(&self) -> CSG<()> {
+        let pin = CSG::cylinder(self.pin_diameter / 2.0, self.pin_length);
+        let spacing = self.body_diameter / 3.0;
+        pin.translate(-spacing, 0.0, -self.pin_length)
+            .union(&pin.translate(spacing, 0.0, -self.pin_length))
+    }
+
+    /// Assemble the complete button
+    pub fn assemble(&self) -> CSG<()> {
+        self.body().union(&self.cap()).union(&self.pins())
+    }
+}
+
